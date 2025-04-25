@@ -104,7 +104,7 @@
             /* Add a fade-in effect for the content */
     .fade-in {
       opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards; /* Slower fade-in effect */
+      animation: fadeIn 0.8s ease-in-out forwards; /* Faster, smoother fade-in effect */
     }
           
           .no-scroll {
@@ -175,8 +175,11 @@
           loadingScreen.style.opacity = "0";
           setTimeout(() => {
             loadingScreen.style.display = "none";
-            content.classList.add("fade-in");
-          }, 1500); // Match the duration of the CSS transition (1.5s)
+            // Add a small delay before starting the content fade-in
+            setTimeout(() => {
+              content.classList.add("fade-in");
+            }, 100);
+          }, 1000); // Reduced transition time for smoother experience
         }
       }
 
