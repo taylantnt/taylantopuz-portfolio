@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videography Page</title>
+    <link rel="stylesheet" href="videography.css">
+</head>
+<body>
+    <header>
+        <div class="video-mask">
+            <video autoplay muted loop>
+                <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Vf4VaSF47QD_360.mp4?v=1724093301616" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+                <path d="M0,50 Q50,0 100,50 Z" />
+            </svg>
+        </div>
+    </header>
+    <main>
+        <div class="thumbnail-container">
+            <a href="page1.html" class="thumbnail">
+                <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF6119.jpg?v=1725179487972" alt="Thumbnail 1">
+            </a>
+            <a href="page2.html" class="thumbnail">
+                <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF6119.jpg?v=1725179487972" alt="Thumbnail 2">
+            </a>
+            <!-- Add more thumbnails as needed -->
+        </div>
+    </main>
+</body>
+</html>

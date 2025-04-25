@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Session - Taylan Topuz</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn.glitch.global//website%20icon.ico?v=1724511730117" type="image/x-icon">
+  <link rel="icon" href="https://cdn.glitch.global//logo.png?v=1724123424610" type="image/png"> 
+  <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="booking.css">
+  <link rel="stylesheet" href="toggle.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css"> 
+  <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- External CSS for fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo">
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="photo.html" id="navPhotography">Photography</a>
+      <a href="videography.html" id="navVideography">Videography</a>
+      <a href="#booking" id="navBooking" style="text-decoration: underline;">Booking</a>
+      <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" id="navInstagram">Instagram</a>
+      <a href="reviews.html" id="navReviews">Reviews</a>
+    </div>
+        <div id="languageToggle" class="toggle-container" onclick="toggleLanguage(this)">
+        <span class="toggle-label en-label">EN</span>
+        <div class="toggle-ball"></div>
+        <span class="toggle-label jp-label">JP</span>
+    </div>
+  </nav>
+  <style>
+    .nav-links a {
+      font-family: 'Baloo 2', 'Noto Sans JP', sans-serif; 
+    }
+  </style>
+
+  <!-- Booking Section -->
+  <section class="booking-section">
+    <div class="booking-content">
+        <h2 id="bookSessionTitle">Book Your Session</h2>
+        <p id="bookSessionDescription">Capture life's special moments with professional photography and videography services tailored to your needs. From weddings to corporate events, I'm here to help you tell your story.</p>
+    </div>
+
+    <div class="booking-content">
+        <h2 id="howItWorksTitle">How It Works</h2>
+        <p id="howItWorksDescription">Fill out the form below to request a quote or inquire about your event. I'll get back to you within 24 hours to discuss your project in detail and provide you with a personalized quote.</p>
+        <div class="services">
+            <h2 id="availableServicesTitle">Available Services:</h2>
+            <li id="eventPhotography">Event Photography</li>
+            <li id="weddingVideography">Wedding Videography</li>
+            <li id="corporateVideos">Corporate Videos</li>
+            <li id="portraitSessions">Portrait Sessions</li>
+            <li id="customProjects">Custom Projects</li>
+        </div>
+        <form action="https://formspree.io/f/xeojnbye" method="POST">
+            <div class="booking-form">
+                <label for="name" id="nameLabel">Your Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="booking-form">
+                <label for="email" id="emailLabel">Email Address:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="booking-form">
+                <label for="phone" id="phoneLabel">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="booking-form">
+                <label for="service" id="serviceLabel">Service Interested In:</label><br>
+                <select id="service" name="service">
+                    <option value="photography" id="optionPhotography">Photography</option>
+                    <option value="videography" id="optionVideography">Videography</option>
+                    <option value="both" id="optionBoth">Both</option>
+                    <option value="custom" id="optionCustom">Custom Project</option>
+                </select>
+            </div>
+
+            <div class="booking-form">
+                <label for="details" id="detailsLabel">Event Details:</label><br>
+          <textarea id="details" name="details" rows="3" placeholder="Please include date, location, and any specific requirements." required></textarea>
+            </div>
+
+            <div class="booking-form">
+                <button type="submit" class="booking-btn" id="requestQuoteButton">Request a Quote</button>
+            </div>
+        </form>
+    </div>
+  </section>
+  
+  <!-- Wave Transition -->
+  <div class="wave-container wave-bottom">
+    <svg viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#ADD8E6" fill-opacity="1" d="M0,192L30,181.3C60,171,120,149,180,122.7C240,96,300,64,360,58.7C420,53,480,75,540,101.3C600,128,660,160,720,154.7C780,149,840,107,900,96C960,85,1020,107,1080,128C1140,149,1200,171,1260,186.7C1320,203,1380,213,1410,218.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+     <!-- About Section -->
+      <div class="footer-section about">
+        <h3>About Me</h3>
+<p style="font-family: 'futura-pt', sans-serif;">
+  I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+</p>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="photo.html">Photography</a></li>
+          <li><a href="videography.html">Videography</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram"></a>
+          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail.png?v=1724269289815" alt="Email"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+<p style="font-family: 'futura-pt', sans-serif;">
+  &copy; 2025 Taylan Topuz. All rights reserved.
+</p>      <a href="#" class="back-to-top">Back to Top</a>
+    </div>
+  </footer>
+
+  <script>
+    // Add 'scrolled' class to navbar when page is scrolled down
+    window.addEventListener('scroll', function() {
+      var navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var navLinks = document.getElementById("nav-links");
+      var hamburger = document.getElementById("hamburger");
+
+      hamburger.addEventListener("click", function() {
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("open");
+        document.body.classList.toggle("no-scroll");
+      });
+    });
+    
+   // Language selector
+    document.addEventListener('DOMContentLoaded', function() {
+      const textContent = {
+        en: {
+          first: "First paragraph text in English",
+          second: "Second paragraph text in English",
+          photography: "Photography",
+          videography: "Videography",
+          booking: "Booking",
+          instagram: "instagram",
+          reviews: "reviews",
+          categoryText: "Choose a category below to see examples of my work",
+          bookSessionTitle: "Book Your Session",
+          bookSessionDescription: "Capture life's special moments with professional photography and videography services tailored to your needs. From weddings to corporate events, I'm here to help you tell your story.",
+          howItWorksTitle: "How It Works",
+          howItWorksDescription: "Fill out the form below to request a quote or inquire about your event. I'll get back to you within 24 hours to discuss your project in detail and provide you with a personalized quote.",
+          availableServicesTitle: "Available Services:",
+          eventPhotography: "Event Photography",
+          weddingVideography: "Wedding Videography",
+          corporateVideos: "Corporate Videos",
+          portraitSessions: "Portrait Sessions",
+          customProjects: "Custom Projects",
+          nameLabel: "Your Name:",
+          emailLabel: "Email Address:",
+          phoneLabel: "Phone Number:",
+          serviceLabel: "Service Interested In:",
+          optionPhotography: "Photography",
+          optionVideography: "Videography",
+          optionBoth: "Both",
+          optionCustom: "Custom Project",
+          detailsLabel: "Event Details:",
+          requestQuoteButton: "Request a Quote",
+          placeholderText: "Please include date, location, and any specific requirements."
+
+        },
+        jp: {
+          first: "最初の段落のテキスト（日本語）",
+          second: "2番目の段落のテキスト（日本語）",
+          photography: "写真",
+          videography: "ビデオ",
+          booking: "予約",
+          instagram: "インスタグラム",
+          reviews: "レビュー",
+          categoryText: "以下のカテゴリを選択して、私の作品の例を見てください",
+          bookSessionTitle: "セッションを予約する",
+          bookSessionDescription: "あなたのニーズに合わせたプロの写真撮影とビデオ撮影サービスで人生の特別な瞬間をキャプチャします。結婚式から企業イベントまで、あなたのストーリーを伝えるお手伝いをします。",
+          howItWorksTitle: "仕組み",
+          howItWorksDescription: "以下のフォームに記入して、見積もりを依頼するか、イベントについてお問い合わせください。24時間以内にプロジェクトの詳細を話し合い、個別の見積もりを提供します。",
+          availableServicesTitle: "利用可能なサービス:",
+          eventPhotography: "イベント写真撮影",
+          weddingVideography: "結婚式のビデオ撮影",
+          corporateVideos: "企業ビデオ",
+          portraitSessions: "ポートレートセッション",
+          customProjects: "カスタムプロジェクト",
+          nameLabel: "あなたの名前:",
+          emailLabel: "メールアドレス:",
+          phoneLabel: "電話番号:",
+          serviceLabel: "興味のあるサービス:",
+          optionPhotography: "写真撮影",
+          optionVideography: "ビデオ撮影",
+          optionBoth: "両方",
+          optionCustom: "カスタムプロジェクト",
+          detailsLabel: "イベントの詳細:",
+          requestQuoteButton: "見積もりを依頼する",
+          placeholderText: "日付、場所、および特定の要件を含めてください。"
+
+        }
+      };
+
+      function updateTextContent(language) {
+        console.log(`Updating text content to ${language}`);
+        document.getElementById('bookSessionTitle').textContent = textContent[language].bookSessionTitle;
+        document.getElementById('bookSessionDescription').textContent = textContent[language].bookSessionDescription;
+        document.getElementById('howItWorksTitle').textContent = textContent[language].howItWorksTitle;
+        document.getElementById('howItWorksDescription').textContent = textContent[language].howItWorksDescription;
+        document.getElementById('availableServicesTitle').textContent = textContent[language].availableServicesTitle;
+        document.getElementById('eventPhotography').textContent = textContent[language].eventPhotography;
+        document.getElementById('weddingVideography').textContent = textContent[language].weddingVideography;
+        document.getElementById('corporateVideos').textContent = textContent[language].corporateVideos;
+        document.getElementById('portraitSessions').textContent = textContent[language].portraitSessions;
+        document.getElementById('customProjects').textContent = textContent[language].customProjects;
+        document.getElementById('nameLabel').textContent = textContent[language].nameLabel;
+        document.getElementById('emailLabel').textContent = textContent[language].emailLabel;
+        document.getElementById('phoneLabel').textContent = textContent[language].phoneLabel;
+        document.getElementById('serviceLabel').textContent = textContent[language].serviceLabel;
+        document.getElementById('optionPhotography').textContent = textContent[language].optionPhotography;
+        document.getElementById('optionVideography').textContent = textContent[language].optionVideography;
+        document.getElementById('optionBoth').textContent = textContent[language].optionBoth;
+        document.getElementById('optionCustom').textContent = textContent[language].optionCustom;
+        document.getElementById('detailsLabel').textContent = textContent[language].detailsLabel;
+        document.getElementById('requestQuoteButton').textContent = textContent[language].requestQuoteButton;
+        document.getElementById('details').placeholder = textContent[language].placeholderText;
+        document.getElementById('navPhotography').textContent = textContent[language].photography;
+        document.getElementById('navVideography').textContent = textContent[language].videography;
+        document.getElementById('navBooking').textContent = textContent[language].booking;
+        document.getElementById('navInstagram').textContent = textContent[language].instagram;
+        document.getElementById('navReviews').textContent = textContent[language].reviews;
+      }
+
+      // Initial text content
+      updateTextContent('en');
+
+      // Event listener for language toggle
+      document.getElementById('languageToggle').addEventListener('click', function() {
+        const currentLanguage = document.getElementById('languageToggle').classList.contains('jp') ? 'jp' : 'en';
+        const newLanguage = currentLanguage === 'en' ? 'jp' : 'en';
+        document.getElementById('languageToggle').classList.toggle('jp');
+        document.getElementById('languageToggle').classList.toggle('en');
+        updateTextContent(newLanguage);
+      });
+    });
+
+    function toggleLanguage(toggle) {
+      toggle.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

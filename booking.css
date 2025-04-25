@@ -1,0 +1,191 @@
+* Colors */ :root {
+  --primary-color: #333333;
+  --secondary-color: #666666;
+  --accent-color: #de8435;
+  --text-color: #cccccc;
+  --background-color: #000000;
+  --button-color: #444444;
+  --button-hover-color: #555555;
+  --navbar-hover-color: #444444;
+}
+
+/* Booking Section CSS */
+
+.booking-section {
+  background: #000000; /* Black background */
+  padding: 80px 20px; /* Increased padding for better spacing */
+  color: #f0f0f0; /* Light grey text */
+  font-weight: normal;
+  font-family: acumin-pro, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-content {
+  max-width: 700px; /* Increased max-width for better layout */
+  margin: 30px auto;
+  text-align: center;
+}
+
+.booking-content h2 {
+  font-size: 2em; /* Increased font size for better readability */
+  text-decoration: none;
+  margin-bottom: 5px; /* Increased margin for better spacing */
+  color: #de8435; /* Accent color */
+}
+
+.booking-content p {
+  font-size: 1.2em; /* Increased font size for better readability */
+  margin-bottom: 0px; /* Increased margin for better spacing */
+}
+
+.services li {
+  font-size: 1.2em;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* Increased gap for better spacing */
+  max-width: 700px;
+  margin: auto;
+  padding: 20px; /* Added padding for better spacing */
+  border-radius: 15px; /* Rounded corners */
+  display: block; /* Ensure the button is treated as a block element */
+  margin: 0 ; /* Center the button horizontally */
+
+}
+
+.booking-form label {
+  text-align: center; /* Align labels to the left */
+  font-weight: bold;
+  color: #de8435; /* Accent color */
+  display: block; /* Ensure the button is treated as a block element */
+  margin: 0 auto; /* Center the button horizontally */
+  text-decoration: underline;
+  margin-bottom: -10px;
+}
+
+.booking-form input, 
+.booking-form textarea {
+  padding: 15px ; /* Adjusted padding for better spacing */
+  margin-bottom: 0px; /* Adjusted margin for better spacing */
+  border: 1px solid #444444;
+  background-color: #222222; /* Dark background for inputs */
+  color: #f0f0f0;
+  font-size: 1em; /* Adjusted font size for better readability */
+  border-radius: 15px;
+  display: block; /* Ensure the button is treated as a block element */
+  margin: 0 auto; /* Center the button horizontally */
+  width: 45%; /* Adjust the width as needed */
+  max-width: 500px; /* Optional: set a maximum width */
+
+
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  border-color: #de8435; /* Accent color on focus */
+  outline: none;
+  display: block; /* Ensure the button is treated as a block element */
+  margin: 0 auto; /* Center the button horizontally */
+
+}
+
+.booking-btn {
+  background-color: transparent; /* Transparent background */
+  border: 1px solid white; /* White border */
+  color: #de8435; /* Accent text color */
+  text-transform: uppercase; /* Uppercase text */
+  text-decoration: none; /* No underline */
+  font-size: 1em; /* Adjusted font size */
+  margin-top: 30px;
+  font-weight: normal; /* Normal font weight */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 15px; /* Rounded corners */
+  transition: all 0.4s ease; /* Smooth transition for all properties */
+  background-color: rgba(51, 51, 51, 0.8); /* Accent color */
+  padding: 10px 20px; /* Adjusted padding for better spacing */
+  display: block; /* Ensure the button is treated as a block element */
+  margin: 0 auto; /* Center the button horizontally */
+
+}
+
+.booking-btn:hover {
+  background-color: rgba(255, 255, 255, 1); /* Light white background on hover */
+  color: #de8435; /* Change text color to accent color */
+  border: 1px solid #de8435; /* Accent color border */
+}
+
+.services {
+  padding-bottom: 30px; /* Adjust the value as needed */
+  margin-top: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 801px) {
+  .booking-section {
+    padding: 70px 0px; /* Reduced padding for smaller screens */
+  }
+
+  .booking-content {
+    max-width: 100%; /* Full width for smaller screens */
+    margin: 20px auto;
+    padding: 0px 50px; /* Reduced padding for smaller screens */
+
+  }
+
+  .booking-content h2 {
+    font-size: 1.5em; /* Adjusted font size for smaller screens */
+  }
+
+  .booking-content p {
+    font-size: 1em; /* Adjusted font size for smaller screens */
+  }
+  
+  .services li {
+    font-size: 1em;
+  }
+  .booking-form {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 15px; /* Reduced padding for smaller screens */
+    display: block; /* Ensure the button is treated as a block element */
+    margin: 0 auto; /* Center the button horizontally */
+
+  }
+  .booking-form input, 
+  .booking-form textarea {
+  padding: 15px ; /* Adjusted padding for better spacing */
+  margin-bottom: 0px; /* Adjusted margin for better spacing */
+  border: 1px solid #444444;
+  background-color: #222222; /* Dark background for inputs */
+  color: #f0f0f0;
+  font-size: 1em; /* Adjusted font size for better readability */
+  border-radius: 15px;
+  display: block; /* Ensure the button is treated as a block element */
+  margin: 0 auto; /* Center the button horizontally */
+  width: 65%; /* Adjust the width as needed */
+  max-width: 500px; /* Optional: set a maximum width */
+
+  .booking-form input, 
+  .booking-form textarea {
+    font-size: 1em; /* Adjusted font size for smaller screens */
+    padding: 14px; /* Adjusted padding for smaller screens */
+  }
+
+  .booking-btn {
+    font-size: 1em; /* Adjusted font size for smaller screens */
+    padding: 10px 15px; /* Adjusted padding for smaller screens */
+    max-width: 100%;
+    display: block; /* Ensure the button is treated as a block element */
+    margin: 0 auto; /* Center the button horizontally */
+  }
+}
+
+.services {
+  padding-bottom: 30px; /* Adjust the value as needed */
+  margin-top: 50px;
+}
+
+

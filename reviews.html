@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery - Taylan Topuz</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn.glitch.global//website%20icon.ico?v=1724511730117" type="image/x-icon" />
+  <link rel="icon" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20gray.png?v=1725035110583" type="image/png" />
+<!-- External CSS for fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="reviews.css" />
+  <style>
+    .center-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 70px; /* Adjust as needed */
+    }
+
+    .center-button button {
+      font-family: 'Poppins', sans-serif; /* Use your preferred font */
+      font-size: 16px; /* Adjust as needed */
+      padding: 10px 20px; /* Adjust as needed */
+      background-color: transparent; /* Adjust as needed */
+      color: black;
+      text-decoration: underline;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+        transition: all 0.4s ease-in-out; /* Smooth transition */
+    }
+
+    .center-button button:hover {
+      border: var 10px;
+      background-color: white; /* Adjust as needed */
+      color: #de8435;
+        transition: all 0.2s ease-in-out; /* Smooth transition */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20gray.png?v=1725035110583" alt="Logo" />
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="photo.html">Photography</a>
+      <a href="videography.html">Videography</a>
+      <a href="booking.html">Booking</a>
+      <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="#reviews" style="text-decoration: underline">Reviews</a>
+    </div>
+  </nav>
+
+  <div class="center-button">
+    <button onclick="window.location.href='https://embedsocial.com/collect/7706ac9559b945a8e85d'">Leave a Review</button>
+  </div>
+
+  <!-- Masthead Section -->
+  <header>
+<!-- Testimonial Section -->
+<div class="iframe-wrapper">
+    <div class="iframe-container">
+        <iframe src="https://embedsocial.com/api/pro_hashtag/73e046b1b4aab7e2e19dfd7c93cb91858f77203d" frameborder="0"></iframe>
+    </div>
+</div>
+</header>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>About Me</h3>
+        <p style="font-family: 'futura-pt', sans-serif">
+          I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+        </p>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="photo.html">Photography</a></li>
+          <li><a href="videography.html">Videography</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
+          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
+          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p style="font-family: 'futura-pt', sans-serif">
+        &copy; 2025 Taylan Topuz. All rights reserved.
+      </p>
+      <a href="#" class="back-to-top">Back to Top</a>
+    </div>
+  </footer>
+  <script src="reviews.js"></script>
+  <script>
+        // Add 'scrolled' class to navbar when page is scrolled down
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var navLinks = document.getElementById("nav-links");
+        var hamburger = document.getElementById("hamburger");
+
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.toggle("open");
+          hamburger.classList.toggle("open");
+          document.body.classList.toggle("no-scroll");
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+/* Colors */
+:root {
+  --primary-color: #333333; /* Dark gray for primary elements */
+  --secondary-color: #666666; /* Medium gray for secondary elements */
+  --accent-color: #de8435; /* Orange for accents */
+  --text-color: #cccccc; /* Light gray for text */
+  --background-color: #000000; /* Black for background */
+  --button-color: #444444; /* Dark gray for buttons */
+  --button-hover-color: #555555; /* Slightly lighter gray for button hover state */
+  --navbar-hover-color: #444444; /* Dark gray for navbar hover state */
+}
+
+body {
+    font-family: 'futura-pt', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 10px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.grid-item {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    height: 400px auto;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.02);
+}
+
+.grid-item:hover img {
+    transform: scale(1.0);
+    filter: brightness(80%);
+}
+
+/* Optional: Add cool animations on load */
+.grid-item {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: calc(0.1s * var(--animation-order));
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Logo Image Styling */
+.logo img {
+  height: 60px; /* Height of the logo */
+  padding-right: 0px; /* Padding to the right */
+  transition: all 0.4s ease; /* Smooth transition */
+}
+
+/* Hover State for Logo Image */
+.logo img:hover {
+  filter: brightness(1); /* Increase brightness on hover */
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex; /* Flexbox for alignment */
+  justify-content: flex-start; /* Align items to the start */
+  align-items: center; /* Center items vertically */
+  text-transform: uppercase; /* Uppercase text */
+  padding: 10px 10px; /* Padding inside the navbar */
+  position: fixed; /* Fixed position */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width */
+  z-index: 100; /* Stack order */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth background color and blur transition */
+}
+
+
+/* Scrolled State for Navbar */
+.navbar.scrolled {
+  background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+  padding: 10px 10px; /* Padding inside the navbar */
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Column layout */
+  cursor: pointer; /* Pointer cursor */
+  z-index: 1001; /* Stack order */
+  position: absolute; /* Absolute position */
+  right: 0px; /* Align to the right */
+  top: 15px; /* Align to the top */
+  transition: all 0.4s ease; /* Smooth transition */
+}
+
+/* Hamburger Menu Span Styling */
+.hamburger span {
+  height: 3px; /* Height of the span */
+  width: 35px; /* Width of the span */
+  background: #aaaaaa; /* White background */
+  margin: 5px; /* Margin around the span */
+  transition: all 0.3s; /* Smooth transition */
+}
+
+/* Hover State for Hamburger Menu Span */
+.hamburger:hover span {
+  background: var(--accent-color); /* Change background to accent color */
+}
+
+/* Navbar Links Styling */
+.nav-links {
+  display: flex; /* Flexbox for alignment */
+  justify-content: flex-start; /* Align items to the start */
+  align-items: center; /* Center items vertically */
+  margin-left: 20px; /* Margin to the left */
+}
+
+/* Navbar Links Anchor Styling */
+.nav-links a {
+  padding: 20px 19px; /* Padding inside the anchor */
+  text-decoration: none; /* No underline */
+  color: #aaaaaa; /* White text color */
+  font-size: 18px; /* Font size */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover State for Navbar Links Anchor */
+.nav-links a:hover {
+  color: var(--accent-color); /* Change text color to accent color */
+}
+
+/* Media Query for Screens Wider than 721px */
+@media screen and (min-width: 801px) {
+  .logo {
+    position: relative; /* Relative position */
+    top: 0px; /* Align to the top */
+    left: 20px; /* Align to the left */
+  }
+}
+
+/* Media Query for Screens Narrower than 720px */
+@media screen and (max-width: 800px) {
+  .logo{
+    position: relative; /* Relative position */
+    right: 10px;
+    
+  }
+  .navbar {
+    justify-content: center; /* Center items on mobile */
+  }
+  
+  /* Navbar Links Anchor Styling */
+.nav-links a {
+  padding: 20px 19px; /* Padding inside the anchor */
+  text-decoration: none; /* No underline */
+  color: white; /* White text color */
+  font-size: 18px; /* Font size */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+  .hamburger {
+    display: flex; /* Show hamburger menu */
+    position: absolute; /* Absolute position */
+    right: 45px; /* Align to the right */
+    top: 22px; /* Align to the top */
+  }
+
+  .nav-links {
+    position: fixed; /* Fixed position */
+    right: 0px; /* Align to the right */
+    top: 0px; /* Align to the top */
+    height: calc(100vh - 1px); /* Full height minus 1px */
+    width: 100%; /* Full width */
+    background-color: rgb(222, 132, 53, 0.2); /* Semi-transparent background */
+    -webkit-backdrop-filter: blur(100px) !important; /* Add this line */
+    flex-direction: column; /* Column layout */
+    text-transform: uppercase; /* Uppercase text */
+    justify-content: center; /* Center the links */
+    font-weight: normal;
+    align-items: center; /* Center items vertically */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Prevent clicks when hidden */
+    transform: translateY(-20px); /* Slightly move the menu up */
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+    overflow-y: auto;
+  }
+
+  .nav-links.open {
+    opacity: 1; /* Show menu */
+    visibility: visible; /* Allow clicks */
+    transform: translateY(0); /* Reset position */
+  }
+
+  .nav-links a {
+    padding: 15px 0; /* Padding inside the anchor */
+    font-size: 34px; /* Font size */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+
+  .nav-links a:hover {
+    color: var(--accent-color); /* Change text color to accent color */
+    transform: scale(1.1); /* Scale up on hover */
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px); /* Rotate and translate */
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0; /* Hide middle span */
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px); /* Rotate and translate */
+  }
+  
+  /* Adjust grid layout for mobile view */
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller grid items */
+    gap: 10px ; /* No gap between thumbnails */
+    padding: 5px 40px;
+  }
+
+  .grid-item {
+    border-radius: 10px; /* Remove border radius */
+  }
+}
+
+/* Social Icons Container Styling */
+.social-icons {
+  margin-top: 20px; /* Margin to the top */
+  display: flex; /* Flexbox for alignment */
+  justify-content: center; /* Center items horizontally */
+  gap: 12px; /* Space between items */
+}
+
+/* Social Icon Image Styling in the footer */
+.social-icon img {
+  width: 30px; /* Width of the icon */
+  height: 30px; /* Height of the icon */
+  filter: invert(1); /* Invert colors for better visibility on dark backgrounds */
+}
+
+/* Hover State for Social Icon Image */
+.social-icon:hover img {
+  transform: scale(1.5); /* Scale up on hover */
+  transition: transform 0.3s; /* Smooth transition */
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--primary-color); /* Background color */
+  color: var(--text-color); /* Text color */
+  text-align: center; /* Center text */
+  padding: 10px 0; /* Padding inside the footer */
+}
+
+/* Footer Container Styling */
+.footer {
+  background-color: var(--primary-color); /* Background color */
+  color: var(--text-color); /* Text color */
+  padding: 20px 0; /* Padding inside the footer */
+  text-align: center; /* Center text */
+}
+
+/* Footer Content Styling */
+.footer-content {
+  display: flex; /* Flexbox for alignment */
+  flex-wrap: wrap; /* Wrap items */
+  justify-content: space-between; /* Space between items */
+  padding: 20px; /* Padding inside the footer */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center the content */
+}
+
+/* Footer Section Styling */
+.footer-section {
+  flex: 1; /* Flex grow */
+  margin: 10px; /* Margin around the section */
+}
+
+/* Footer Section Heading Styling */
+.footer-section h3 {
+  margin-bottom: 15px; /* Margin to the bottom */
+  color: var(--accent-color); /* Text color */
+  text-decoration: underline;
+}
+
+/* Footer Section Paragraph and List Styling */
+.footer-section p,
+.footer-section ul {
+  margin: 0; /* No margin */
+}
+
+/* Footer Section List Styling */
+.footer-section ul {
+  list-style: none; /* No list style */
+  padding: 0; /* No padding */
+}
+
+/* Footer Section List Item Styling */
+.footer-section ul li {
+  margin-bottom: 10px; /* Margin to the bottom */
+}
+
+/* Footer Section List Item Anchor Styling */
+.footer-section ul li a {
+  font-family: 'futura-pt', sans-serif;
+  color: var(--text-color); /* Text color */
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover State for Footer Section List Item Anchor */
+.footer-section ul li a:hover {
+  color: var(--accent-color); /* Change text color to accent color */
+}
+
+/* Social Icons Anchor Styling */
+.social-icons a {
+  margin: 0 10px; /* Margin to the sides */
+  transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+/* Footer Bottom Styling */
+.footer-bottom {
+  border-top: 1px solid var(--button-hover-color); /* Top border */
+  padding: 10px 0; /* Padding inside the footer */
+}
+
+/* Back to Top Anchor Styling */
+.back-to-top {
+  color: var(--accent-color); /* Text color */
+  font-family: 'futura-pt', sans-serif;
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover State for Back to Top Anchor */
+.back-to-top:hover {
+  color: white; /* Change text color to white */
+}
+
+/* Disable scrolling */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Back Button Container */
+.back-button-container {
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Back Button Styling */
+.back-button {
+  background-color: transparent;
+  color: white;
+  align-items: left; /* Center items vertically */
+  border: none;
+  margin-top: 100px;
+  font-family: 'futura-pt', Sans Serif;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: underline;
+      transition: all 0.4s ease-in-out; /* Smooth transition */
+}
+
+.back-button:hover {
+  color: #de8435;
+    transition: all 0.2s ease-in-out; /* Smooth transition */
+}

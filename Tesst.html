@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videography Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .video-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .video-block {
+            position: relative;
+            width: 300px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            overflow: hidden;
+            margin: 10px;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+            cursor: pointer;
+        }
+
+        .video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-block:hover {
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 768px) {
+            .video-block {
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-gallery">
+        <div class="video-block" data-video="video1.mp4">
+            <video class="video" muted loop>
+                <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Vf4VaSF47QD_360.mp4?v=1724093301616" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-block" data-video="video2.mp4">
+            <video class="video" muted loop>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-block" data-video="video3.mp4">
+            <video class="video" muted loop>
+                <source src="video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- Add more video blocks as needed -->
+    </div>
+
+    <script>
+        document.querySelectorAll('.video-block').forEach(block => {
+            const video = block.querySelector('.video');
+
+            // Mobile functionality
+            block.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    block.style.filter = 'grayscale(0%)';
+                } else {
+                    video.pause();
+                    block.style.filter = 'grayscale(100%)';
+                }
+            });
+
+            // Desktop functionality
+            block.addEventListener('mouseenter', () => {
+                block.style.filter = 'grayscale(0%)';
+                video.play();
+            });
+
+            block.addEventListener('mouseleave', () => {
+                block.style.filter = 'grayscale(100%)';
+                video.pause();
+            });
+        });
+    </script>
+</body>
+</html>
