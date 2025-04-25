@@ -104,7 +104,7 @@
             /* Add a fade-in effect for the content */
     .fade-in {
       opacity: 0;
-      animation: fadeIn 0.5s ease-out forwards; /* Faster fade-in with smoother easing */
+      animation: fadeIn 2s ease-in-out forwards; /* Slower fade-in effect */
     }
           
           .no-scroll {
@@ -149,12 +149,6 @@
       }
     }
           
-  }
-
-  /* Navigation styles */
-  .nav-links a {
-    font-family: 'Baloo 2', 'Noto Sans JP', sans-serif;
-  }
   </style>
       <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -182,7 +176,7 @@
           setTimeout(() => {
             loadingScreen.style.display = "none";
             content.classList.add("fade-in");
-          }, 500); // Shorter transition time for immediate content display
+          }, 1500); // Match the duration of the CSS transition (1.5s)
         }
       }
 
@@ -629,7 +623,7 @@
           <div class="hero-content">
             <div class="hero-text-container">
               <h1 class="hero-title">Taylan Topuz</h1>
-              <h2 class="hero-subtitle">Professional Photography & Videography Services</h2>
+              <h2 class="hero-subtitle">Professional Photography & Videography</h2>
               <p class="hero-tagline">Capturing timeless moments in Tokyo and beyond</p>
               <p id="firstParagraph" class="hero-description">Capture the essence of your cherished moments with professional photography and videography that faithfully narrate your story. Whether it be a solemn wedding ceremony, a corporate gathering, or a private celebration, I combine my creative acumen with technical proficiency to meticulously preserve every detail in exceptional quality.</p>
             </div>
