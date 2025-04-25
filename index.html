@@ -104,7 +104,7 @@
             /* Add a fade-in effect for the content */
     .fade-in {
       opacity: 0;
-      animation: fadeIn 0.8s ease-in-out forwards; /* Faster, smoother fade-in effect */
+      animation: fadeIn 0.5s ease-out forwards; /* Faster fade-in with smoother easing */
     }
           
           .no-scroll {
@@ -149,6 +149,12 @@
       }
     }
           
+  }
+
+  /* Navigation styles */
+  .nav-links a {
+    font-family: 'Baloo 2', 'Noto Sans JP', sans-serif;
+  }
   </style>
       <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -175,11 +181,8 @@
           loadingScreen.style.opacity = "0";
           setTimeout(() => {
             loadingScreen.style.display = "none";
-            // Add a small delay before starting the content fade-in
-            setTimeout(() => {
-              content.classList.add("fade-in");
-            }, 100);
-          }, 1000); // Reduced transition time for smoother experience
+            content.classList.add("fade-in");
+          }, 500); // Shorter transition time for immediate content display
         }
       }
 
@@ -585,16 +588,27 @@
     </div>
   </div>
       <!-- Navigation Bar -->
-      <nav class="navbar" aria-label="Main Navigation">
-        <div class="navbar-container">
-          <a href="index.html" class="logo" aria-label="Taylan Topuz Photography & Videography Home">
-            <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Taylan Topuz Logo" />
-          </a>
-          <div class="nav-links" id="nav-links">
-            <a href="photo.html">Photography</a>
-            <a href="videography.html">Videography</a>
-            <a href="booking.html">Booking</a>
-            <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img
+            src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20gray.png?v=1725035110583"
+            alt="Logo"
+          />
+        </a>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="photo.html">Photography</a>
+          <a href="videography.html">Videography</a>
+          <a href="booking.html">Booking</a>
+          <a
+            href="https://www.instagram.com/tay.camera"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
             <a href="reviews.html">Reviews</a>
             <!-- Language toggle integrated into navigation -->
             <div id="languageToggle" class="toggle-container" aria-label="Language Toggle">
