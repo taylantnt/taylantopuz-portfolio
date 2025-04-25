@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Toggle with Typewriter Effect and Stylish Button</title>
+  <style>
+    /* Style for the toggle switch */
+    .toggle-container {
+      position: relative;
+      width: 80px; /* Adjusted for space to include text */
+      height: 30px;
+      background-color: #ddd;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+    }
+
+    .toggle-ball {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background-color: #0000ff; /* Blue color for English */
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    .toggle-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      z-index: 1; /* Ensure text is above the ball */
+    }
+
+    .jp-label {
+      color: #BC002D; /* Japanese flag red */
+    }
+
+    .en-label {
+      color: #0000ff; /* Blue for English */
+    }
+
+    /* Styles for the text */
+    .typing {
+      border-right: 2px solid black;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="languageToggle" class="toggle-container">
+    <span class="toggle-label jp-label">JP</span>
+    <div class="toggle-ball"></div>
+    <span class="toggle-label en-label">EN</span>
+  </div>
+  
+  <p data-en="Hello, World!" data-jp="こんにちは、世界！" class="text">Hello, World!</p>
+  <p data-en="Welcome to my website!" data-jp="私のウェブサイトへようこそ！" class="text">Welcome to my website!</p>
+  
+  <script>
+    const toggleContainer = document.getElementById('languageToggle');
+    const toggleBall = document.querySelector('.toggle-ball');
+    let isEnglish = true;
+
+    function typewriterEffect(element, text) {
+      element.classList.add('typing');
+      element.textContent = ''; // Clear the content first
+      let i = 0;
+      const speed = 50; // Adjust typing speed here
+
+      function typeNextChar() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeNextChar, speed);
+        } else {
+          element.classList.remove('typing');
+        }
+      }
+
+      typeNextChar();
+    }
+
+    toggleContainer.addEventListener('click', () => {
+      const textElements = document.querySelectorAll('.text');
+
+      textElements.forEach(element => {
+        const newText = isEnglish ? element.getAttribute('data-jp') : element.getAttribute('data-en');
+        typewriterEffect(element, newText);
+      });
+
+      // Update the toggle ball's position and color, and the visibility of the labels
+      if (isEnglish) {
+        toggleBall.style.left = '51px'; // Move the ball to the right
+        toggleBall.style.backgroundColor = '#BC002D'; // Change color to Japanese red
+      } else {
+        toggleBall.style.left = '1px'; // Move the ball to the left
+        toggleBall.style.backgroundColor = '#0000ff'; // Change color to blue
+      }
+
+      isEnglish = !isEnglish;
+    });
+  </script>
+</body>
+</html>

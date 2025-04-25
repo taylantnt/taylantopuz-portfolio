@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery {
+    margin: 2px;
+    margin-top: 20px;
+    margin-left: 5px;
+  margin-bottom: 20px;
+}
+
+.gallery-item {
+    width: calc(33% - 6px); /* Adjust the percentage to control the number of columns */
+    margin: 3px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 3.8px;
+    display: block;
+    object-fit: cover;
+}
+
+/* CSS for the loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-item img {
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+}
+
+.gallery-item img.loaded {
+  animation: fadeIn 0.9s ease-in-out;
+  opacity: 1;
+}
+
+/* Back Button Container */
+.back-button-container {
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Back Button Styling */
+.back-button {
+  background-color: transparent;
+  color: white;
+  align-items: left; /* Center items vertically */
+  border: none;
+  margin-top: 80px;
+  font-family: 'Baloo 2', Sans Serif;
+  font-weight: 100;
+  font-size: 20px;
+  text-transform: uppercase; /* Uppercase text */
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: underline;
+  transition: all 0.4s ease-in-out; /* Smooth transition */
+}
+
+.back-button:hover {
+  color: #de8435;
+  transition: all 0.2s ease-in-out; /* Smooth transition */
+}
+
+/* Change cursor to pointer on hover */
+.gallery-item img:hover {
+    cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 15px #de8435; /* Add highlight color */
+}
+
+/* Ensure the hovered gallery item stays on top */
+.gallery-item {
+  position: relative; /* Enable z-index stacking context */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  z-index: 100; /* Bring the hovered item to the front */
+  transform: scale(1.05); /* Slightly enlarge the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 15px #de8435; /* Add highlight color */
+}
+
+/* Disable transform and highlight effects on mobile */
+@media (max-width: 768px) {
+    .gallery-item:hover {
+        transform: none; /* Disable transform */
+        box-shadow: none; /* Disable highlight */
+    }
+}

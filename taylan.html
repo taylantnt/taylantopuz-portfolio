@@ -1,0 +1,205 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Taylan's Gallery</title>
+        <link rel="stylesheet" href="individual.css">
+        <!-- Include Hammer.js via CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+        <style>
+            /* Hover effect for gallery images */
+            .gallery img:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
+            }
+
+            /* Ensure lightbox image does not have any hover effects */
+            .lightbox img {
+                transform: none !important;
+                transition: none !important;
+            }
+
+            /* Basic styling for the lightbox */
+            .lightbox {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: none; /* Hidden by default */
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            }
+
+            .lightbox img {
+                max-width: 90%;
+                max-height: 80%;
+            }
+
+            .lightbox-close,
+            .lightbox-prev,
+            .lightbox-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                user-select: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .lightbox-close {
+                top: 20px;
+                right: 30px;
+                transform: none;
+                font-size: 3rem;
+            }
+
+            .lightbox-prev {
+                left: 30px;
+            }
+
+            .lightbox-next {
+                right: 30px;
+            }
+
+            /* Hide arrows on mobile after half a second */
+            @media only screen and (max-width: 768px) {
+                .lightbox-prev,
+                .lightbox-next {
+                    opacity: 1;
+                }
+
+                .lightbox.hide-arrows .lightbox-prev,
+                .lightbox.hide-arrows .lightbox-next {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo">
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="gallery.html">Photography</a>
+      <a href="videography.html">Videography</a>
+      <a href="booking.html">Booking</a>
+      <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </nav>
+
+        <header>
+            <h1></h1>
+        </header>
+
+        <section class="gallery">
+            <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6668.jpeg?v=1723962198913" alt="Taylan Photo 1" class="lightbox-trigger">
+            <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6704.jpeg?v=1723961923532" alt="Taylan Photo 2" class="lightbox-trigger">
+            <!-- Add more photos as needed -->
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <a class="lightbox-prev" id="lightbox-prev">&#10094;</a>
+            <img id="lightbox-image" src="" alt="Lightbox Image">
+            <a class="lightbox-next" id="lightbox-next">&#10095;</a>
+        </div>
+
+        <!-- JavaScript for Gallery and Swipe Functionality -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImage = document.getElementById('lightbox-image');
+                const closeButton = document.getElementById('lightbox-close');
+                const prevButton = document.getElementById('lightbox-prev');
+                const nextButton = document.getElementById('lightbox-next');
+                const galleryImages = document.querySelectorAll('.gallery img');
+                let arrowTimer;
+
+                let currentIndex = 0;
+
+                // Function to open lightbox
+                function openLightbox(index) {
+                    currentIndex = index;
+                    lightboxImage.src = galleryImages[currentIndex].src;
+                    lightbox.style.display = 'flex';
+
+                    // Show arrows on mobile and start timer to hide them
+                    if (window.innerWidth <= 768) {
+                        lightbox.classList.remove('hide-arrows');
+                        clearTimeout(arrowTimer);
+                        arrowTimer = setTimeout(() => {
+                            lightbox.classList.add('hide-arrows');
+                        }, 500);
+                    }
+                }
+
+                // Function to close lightbox
+                function closeLightbox() {
+                    lightbox.style.display = 'none';
+                }
+
+                // Function to show next image
+                function showNext() {
+                    currentIndex = (currentIndex + 1) % galleryImages.length;
+                    lightboxImage.src = galleryImages[currentIndex].src;
+                }
+
+                // Function to show previous image
+                function showPrev() {
+                    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                    lightboxImage.src = galleryImages[currentIndex].src;
+                }
+
+                // Add click event to gallery images
+                galleryImages.forEach((img, index) => {
+                    img.addEventListener('click', () => openLightbox(index));
+                });
+
+                // Add click event to close button
+                closeButton.addEventListener('click', closeLightbox);
+
+                // Add click events to prev and next buttons
+                prevButton.addEventListener('click', showPrev);
+                nextButton.addEventListener('click', showNext);
+
+                // Initialize Hammer.js on the lightbox
+                const hammer = new Hammer(lightbox);
+
+                // Handle swipe gestures
+                hammer.on('swipeleft', function() {
+                    showNext();
+                });
+
+                hammer.on('swiperight', function() {
+                    showPrev();
+                });
+
+                // Reset arrow timer on swipe
+                hammer.on('swipeleft swiperight', function() {
+                    if (window.innerWidth <= 768) {
+                        lightbox.classList.remove('hide-arrows');
+                        clearTimeout(arrowTimer);
+                        arrowTimer = setTimeout(() => {
+                            lightbox.classList.add('hide-arrows');
+                        }, 1000);
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>

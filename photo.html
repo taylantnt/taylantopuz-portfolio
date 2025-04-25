@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery - Taylan Topuz</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global//website%20icon.ico?v=1724511730117"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global//logo.png?v=1724123424610"
+      type="image/png"
+    />
+    <!-- External CSS for fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="photo.css" />
+    <style>
+      a,
+      button {
+        text-decoration: none;
+        margin: 0px;
+        padding: 0px;
+        cursor: pointer;
+      }
+
+      .nav-links a {
+        font-family: 'Baloo 2', 'Noto Sans JP', sans-serif; 
+      }
+      .fade {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .fade.show {
+        opacity: 1;
+      }
+
+      .galery-item {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img
+          src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20gray.png?v=1725035110583"
+          alt="Logo"
+        />
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#photo" style="text-decoration: underline">Photography</a>
+        <a href="videography.html">Videography</a>
+        <a href="booking.html">Booking</a>
+        <a
+          href="https://www.instagram.com/tay.camera"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
+        >
+        <a href="reviews.html">Reviews</a>
+      </div>
+    </nav>
+
+    <!-- Masthead Section -->
+    <header></header>
+
+    <main>
+      <div class="styles" id="styles">
+        <button data-category="portraits">Portraits</button>
+        <button data-category="projects">Projects</button>
+        <button data-category="events">Events</button>
+        <button data-category="art">Art</button>
+      </div>
+      <main>
+        <section id="portfolio" class="galery fade show">
+          <!-- Add more gallery items as needed -->
+        </section>
+      </main>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3>About Me</h3>
+          <p style="font-family: 'futura-pt', sans-serif">
+            I’m Taylan Topuz, a passionate photographer and videographer based
+            in Tokyo. Explore my portfolio to see my work and get in touch for
+            collaborations!
+          </p>
+        </div>
+
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#photo">Photography</a></li>
+            <li><a href="videography.html">Videography</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" >Instagram</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/taylan-topuz/"
+              class="social-icon"
+              ><img
+                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057"
+                alt="LinkedIn"
+            /></a>
+            <a href="https://www.instagram.com/tay.camera" class="social-icon"
+              ><img
+                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526"
+                alt="Instagram"
+            /></a>
+            <a href="mailto:ttopuz@outlook.jp" class="social-icon"
+              ><img
+                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198"
+                alt="Email"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="font-family: 'futura-pt', sans-serif">
+          &copy; 2025 Taylan Topuz. All rights reserved.
+        </p>
+        <a href="#" class="back-to-top">Back to Top</a>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get all buttons within the #styles container
+        const buttons = document.querySelectorAll("#styles button");
+
+        // Function to handle button click
+        function handleButtonClick(event) {
+          // Remove the active class from all buttons
+          buttons.forEach((button) => button.classList.remove("active"));
+
+          // Add the active class to the clicked button
+          event.target.classList.add("active");
+        }
+
+        // Add click event listener to each button
+        buttons.forEach((button) => {
+          button.addEventListener("click", handleButtonClick);
+        });
+      });
+
+      // Add animation order for staggered effect
+      document.addEventListener("DOMContentLoaded", function () {
+        const gridItems = document.querySelectorAll(".galery-item");
+        gridItems.forEach((item, index) => {
+          item.style.animationDelay = `${index * 0.1}s`;
+        });
+      });
+
+      // Add 'scrolled' class to navbar when page is scrolled down
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var navLinks = document.getElementById("nav-links");
+        var hamburger = document.getElementById("hamburger");
+
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.toggle("open");
+          hamburger.classList.toggle("open");
+          document.body.classList.toggle("no-scroll");
+        });
+      });
+
+      const galleryData = {
+        portraits: [
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT302645.jpg?v=1725180097676",
+            alt: "Tapioka",
+            name: "Tapioka",
+            year: "2023",
+            link: "https://taylantopuz.glitch.me/portraits/asd.html",
+          },
+          {
+            src: "https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF1990.jpg?v=1725039332157",
+            alt: "akiko",
+            name: "akiko",
+            year: "2022",
+            link: "/portraits/akiko2.html",
+          },
+          {
+            src: "https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF8470.jpg?v=1725039579641",
+            alt: "antonio",
+            name: "antonio",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6768.jpeg?v=1725061722347",
+            alt: "akane",
+            name: "akane",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742",
+            alt: "reina",
+            name: "reina",
+            year: "2021",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6821.jpg?v=1726419467678",
+            alt: "ringo",
+            name: "ringo",
+            year: "2021",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT307099.webp?v=1726077112067",
+            alt: "James",
+            name: "James",
+            year: "2024",
+          },
+          {
+            src: "https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF2418.jpg?v=1725181220888",
+            alt: "cagri",
+            name: "cagri",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6770.jpeg?v=1725062166899",
+            alt: "Diane",
+            name: "diane",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6771.jpeg?v=1725063790132",
+            alt: "ertug",
+            name: "ertug",
+            year: "2024",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6773.jpeg?v=1725064850199",
+            alt: "lia",
+            name: "lia",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6774.jpeg?v=1725123531653",
+            alt: "Chloe",
+            name: "chloe",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6822.jpg?v=1726420171940",
+            alt: "lisa",
+            name: "lisa",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF4977.jpg?v=1725179805594",
+            alt: "kensho",
+            name: "kensho",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_1470.webp?v=1726076844865",
+            alt: "Hiyori",
+            name: "Hiyori",
+            year: "2021",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_1782.JPG?v=1725178162333",
+            alt: "min",
+            name: "min",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT301845.webp?v=1726078381603",
+            alt: "Marie",
+            name: "Marie",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF8436.jpg?v=1725180401228",
+            alt: "marvin",
+            name: "marvin",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF7619.jpg?v=1725178469689",
+            alt: "reina",
+            name: "reina",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6824.jpg?v=1726421451540",
+            alt: "Lina",
+            name: "Lina",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF2623.jpg?v=1725178594674",
+            alt: "Nahnah",
+            name: "nahnah",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_8792-Enhanced-NR.jpg?v=1725179279381",
+            alt: "Lea",
+            name: "lea",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF8928.jpg?v=1725179650530",
+            alt: "Ashley",
+            name: "Ashley",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6800.webp?v=1726071235247",
+            alt: "Katie",
+            name: "Katie",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT307120.webp?v=1726075339626",
+            alt: "Akane",
+            name: "Akane",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF1300.webp?v=1726077630992",
+            alt: "Joisu",
+            name: "Joisu",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF5346.webp?v=1726075568318",
+            alt: "Ata",
+            name: "Ata",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF6182.avif?v=1726076157783",
+            alt: "Danna",
+            name: "Danna",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_0311.avif?v=1726108838016",
+            alt: "Nikki",
+            name: "Nikki",
+            year: "2022",
+          },
+        ],
+        projects: [
+          {
+            src: "https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT301403.jpg?v=1725040696955",
+            alt: "Ghana Embassy",
+            name: "ghana embassy",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6770.jpeg?v=1725062166899",
+            alt: "pokemon popup",
+            name: "pokemon popup",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF8062.JPG?v=1725178040813",
+            alt: "Saray Menu Shoot",
+            name: "Saray Menu Shoot ",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT307159.jpg?v=1725178754191",
+            alt: "silhouttes",
+            name: "silhouttes",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6770.jpeg?v=1725062166899",
+            alt: "pokemon popup",
+            name: "pokemon popup",
+            year: "2023",
+          },
+        ],
+        events: [
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF0225.jpg?v=1725039685104",
+            alt: "Blue Straight",
+            name: "Blue straight",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT301403.jpg?v=1725040696955",
+            alt: "Acra to havana",
+            name: "Acra to Havana",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/2023_07_28_Cornerstone_147.jpg?v=1725177505937",
+            alt: "Cornerstone",
+            name: "Cornerstone",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT303497.JPG?v=1725177793259",
+            alt: "Private Event",
+            name: "Private Event",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF6119.jpg?v=1725179487972",
+            alt: "Couples shoot",
+            name: "Couples shoot",
+            year: "2022",
+          },
+        ],
+        art: [
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF3974.jpg?v=1725179200433",
+            alt: "Fun", /*Captures playful, joyful, and lighthearted moments with vibrant energy.*/
+            name: "fun",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Nature", /*Focuses on the beauty of natural landscapes, wildlife, and untouched environments.*/
+            name: "nature",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/LINE_ALBUM_230209_1.jpg?v=1725177917804",
+            alt: "Double Exposure", /*Combines two images into one for a creative, surreal effect.*/
+            name: "Double Exposure",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT307159.jpg?v=1725178754191",
+            alt: "silhouettes", /*Highlights dark outlines of subjects against a bright background.*/
+            name: "silhouettes",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT307189.jpg?v=1725178952811",
+            alt: "landscapes", /*Showcases wide, scenic views of natural or man-made environments.*/
+            name: "landscapes",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF2022.JPG?v=1725178286099",
+            alt: "urban", /*Captures the essence of city life through architecture and street scenes.*/
+            name: "urban",
+            year: "2023",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF0715.avif?v=1726109106976",
+            alt: "City Life", /*Depicts the everyday hustle, culture, and energy of living in a city.*/
+            name: "City Life",
+            year: "2022",
+          },
+          {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Abstract", /*Focus on shapes, colors, and forms, where the subject isn’t immediately recognizable.*/
+            name: "Abstract",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Street Photography", /*Candid shots of people or life in public spaces.*/
+            name: "Street Photography",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Minimalism", /*Photography with simple compositions and fewer visual elements.*/
+            name: "Minimalism",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Macro", /*Close-up shots that reveal fine details, often of small subjects like insects or flowers.*/
+            name: "Macro",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Black & white", /*Monochromatic images, emphasizing contrast and mood.*/
+            name: "Black & white",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Fine Art", /*Creative or conceptual photography aimed at expressing a particular artistic vision.*/
+            name: "Fine Art",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6772.jpeg?v=1725063766797",
+            alt: "Fashion", /*Focused on clothing and style, often featuring models.*/
+            name: "Fashion",
+            year: "2023",
+          },
+                    {
+            src: "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_0565.avif?v=1726109107874",
+            alt: "Night Photography", /*Photos taken at night often using artifical light.*/
+            name: "Night Photography",
+            year: "2023",
+          },
+        ],
+      };
+
+      function loadGallery(category) {
+        const gallery = document.getElementById("portfolio");
+        gallery.classList.remove("show");
+        setTimeout(() => {
+          gallery.innerHTML = ""; // Clear existing gallery items
+          galleryData[category].forEach((item) => {
+            const galleryItem = document.createElement("a");
+            galleryItem.className = "galery-item";
+            galleryItem.href = item.link; // Set the link for the entire thumbnail
+            galleryItem.innerHTML = `
+            <img src="${item.src}" alt="${item.alt}">
+            <div class="album-name">${item.name}<br>${item.year}</div>
+          `;
+            gallery.appendChild(galleryItem);
+          });
+          gallery.classList.add("show");
+        }, 500); // Match the transition duration
+      }
+
+      document
+        .getElementById("styles")
+        .addEventListener("click", function (event) {
+          if (event.target.tagName === "BUTTON") {
+            event.preventDefault();
+            const category = event.target.getAttribute("data-category");
+            loadGallery(category);
+          }
+        });
+
+      // Load initial gallery
+      loadGallery("portraits");
+    </script>
+  </body>
+</html>

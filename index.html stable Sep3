@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taylan Topuz Portfolio</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global//website%20icon.ico?v=1724511730117"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global//logo.png?v=1724123424610"
+      type="image/png"
+    />
+    <!-- External CSS for fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Add 'scrolled' class to navbar when page is scrolled down
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Toggle navigation menu on hamburger click
+      document.addEventListener("DOMContentLoaded", function () {
+        var navLinks = document.getElementById("nav-links");
+        var hamburger = document.getElementById("hamburger");
+
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.toggle("open");
+          hamburger.classList.toggle("open");
+          document.body.classList.toggle("no-scroll");
+        });
+      });
+
+      // Secret click event for logo
+      document.addEventListener("DOMContentLoaded", function () {
+        var secretElement = document.querySelector(".logo");
+        var clickCount = 0;
+        var maxClicks = 5; // Number of clicks required
+
+        secretElement.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the default navigation behavior
+
+          clickCount++;
+
+          // Add the flash effect
+          secretElement.classList.add("flash");
+
+          // Remove the flash class after the animation duration
+          setTimeout(function () {
+            secretElement.classList.remove("flash");
+          }, 300); // Match the duration of the flash-animation (0.3s)
+
+          if (clickCount === maxClicks) {
+            // Redirect to secret.html
+            window.location.href = "secret.html";
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+        const carousel = document.querySelector(".testimonial-carousel");
+        let startX, startY;
+        let isDragging = false;
+        let animationFrameId;
+
+        prevButton.addEventListener("click", function () {
+          carousel.scrollBy({
+            top: 0,
+            left: -300,
+            behavior: "smooth",
+          });
+        });
+
+        nextButton.addEventListener("click", function () {
+          carousel.scrollBy({
+            top: 0,
+            left: 300,
+            behavior: "smooth",
+          });
+        });
+
+        // Touch event listeners
+        carousel.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          isDragging = true;
+          cancelAnimationFrame(animationFrameId); // Cancel any ongoing animation
+        });
+
+        carousel.addEventListener("touchmove", (e) => {
+          if (!isDragging) return;
+          const currentX = e.touches[0].clientX;
+          const currentY = e.touches[0].clientY;
+          const diffX = startX - currentX;
+          const diffY = startY - currentY;
+
+          // Check if horizontal scroll distance is greater than vertical scroll distance
+          if (Math.abs(diffX) > Math.abs(diffY)) {
+            // Prevent vertical scrolling
+            e.preventDefault();
+            // Scroll the carousel by the difference in touch positions
+            startX = currentX; // Update startX to the current position for continuous scrolling
+            smoothScroll(diffX);
+          }
+        });
+
+        carousel.addEventListener("touchend", () => {
+          isDragging = false;
+        });
+
+        function smoothScroll(diffX) {
+          const scrollStep = () => {
+            carousel.scrollLeft += diffX * 0.5; // Adjust the multiplier for smoothness
+            if (Math.abs(diffX) > 1) {
+              diffX *= 0.7; // Reduce the diffX gradually for deceleration effect
+              animationFrameId = requestAnimationFrame(scrollStep);
+            }
+          };
+          scrollStep();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img
+          src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219"
+          alt="Logo"
+        />
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="photo.html">Photography</a>
+        <a href="videography.html">Videography</a>
+        <a href="booking.html">Booking</a>
+        <a
+          href="https://www.instagram.com/tay.camera"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
+        >
+        <a href="reviews.html">Reviews</a>
+      </div>
+    </nav>
+
+    <style>
+      .nav-links a {
+        font-family: "futura-pt", sans-serif;
+        font-weight: 100;
+      }
+    </style>
+
+    <!-- Masthead Section -->
+    <header class="masthead">
+      <video autoplay muted loop playsinline id="masthead-video">
+        <source
+          src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Vf4VaSF47QD_360.mp4?v=1724093301616"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay">
+        <h1></h1>
+        <h3
+          style="
+            font-family: 'futura-pt', sans-serif;
+            font-size: 20px;
+            padding: 15px;
+            color: white;
+          "
+        >
+          Choose a category below to see examples of my work
+        </h3>
+        <div class="button-container">
+          <a href="photo.html" class="transparent-button">Photography</a>
+          <a href="videography.html" class="transparent-button">Videography</a>
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/taylan-topuz/"
+            class="social-icon"
+            ><img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057"
+              alt="LinkedIn"
+          /></a>
+          <a href="https://www.instagram.com/tay.camera" class="social-icon"
+            ><img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526"
+              alt="Instagram"
+          /></a>
+          <a href="mailto:ttopuz@outlook.jp" class="social-icon"
+            ><img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198"
+              alt="Email"
+          /></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <a href="booking.html" class="booking-link full-click">
+        <h2>Book Me for an Event!</h2>
+        <style>
+          /* Ensure the hover color changes as intended */
+          p.first:hover {
+            color: darkgray !important; /* Hover color for the first paragraph */
+          }
+
+          p.second:hover {
+            color: #de8435 !important; /* Hover color for the second paragraph */
+          }
+        </style>
+
+        <p
+          class="first"
+          style="
+            font-family: 'futura-pt', sans-serif;
+            color: white;
+            font-size: 1.3rem;
+          "
+        >
+          Capture the essence of your cherished moments with professional
+          photography and videography that faithfully narrate your story.
+          Whether it be a solemn wedding ceremony, a corporate gathering, or a
+          private celebration, I combine my creative acumen with technical
+          proficiency to meticulously preserve every detail in exceptional
+          quality.
+        </p>
+        <p
+          class="second"
+          style="
+            font-family: 'futura-pt', sans-serif;
+            text-decoration: underline;
+            color: white;
+            font-size: 1.1rem;
+          "
+        >
+          Click to Learn More...
+        </p>
+      </a>
+    </section>
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+      <div class="testimonial-container">
+    <h2><a href="reviews.html" class="underline-on-hover">What My Clients Say</a></h2>
+        <div class="testimonial-carousel">
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "写真撮影のためにお願いしました。急なお願いにも関わらず、快諾して下さり、とても助かりました！モデルの経験はなく少し緊張していたのですが、TTさんと気さくにお話できたおかげで、気楽に撮影することができました✨また仕事で撮影する機会が来たらぜひお願いしたいです。"
+            </p>
+            <h3>原口 愛理</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "I do cosplay, and Taylan was able to adapt to the cosplay style
+              of shooting easily! He's super fun to work with and makes you
+              laugh and totally feel comfortable when he shoots. He's so nice
+              and conversation flows easily, so shoots never feel drawn out or
+              boring.His photos are always awesome too, no matter if it's street
+              shooting, studio shooting, or random kawaii cosplay shooting!"
+            </p>
+            <h3>Rai</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Reina"
+            />
+            <p>"He is awesome!! Definitely, You will love it :)"</p>
+            <h3>Tamiko</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Reina"
+            />
+            <p>
+              "結婚式の招待状用の写真を撮ってもらいました。ポーズの細かいアドバイスや、tipsを伝えてくれて数時間かけてしっかりと撮ってくれました。編集もしてくれ無事に完成して感謝しかありません！"
+            </p>
+            <h3>Tasuke</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "I had a chance to do photo shooting more than couple of times
+              with Taylan. Every time he came up with new and interesting ideas,
+              always open to discuss new ideas. He is very chill and easy to
+              work with, that made me feel very comfortable. Planning to to more
+              shooting in the future with this talented guy, I can easily
+              recommend Taylan to everyone, you will have quite experience!!"
+            </p>
+            <h3>Ertug</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "撮影が初めての体験でしたが、ポージングやアイディアを伝えてくれるので楽しく撮影できました！！新たな自分の表情を発見できてよかったです!"
+            </p>
+            <h3>Chika</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "I had a really great experience with Taylan !He know how to make
+              people feel confortable."
+            </p>
+            <h3>Lisa</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "It is always a pleasure to work with Taylan. His attitude is
+              professional and very friendly at the same time, which makes
+              whoever works with him feel comfortable. Looking forward to
+              shooting with him again!"
+            </p>
+            <h3>Antonio</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "Тайлан прекрасный человек и талантливый фотограф, очень добрый и
+              лёгкий в общении, очень внимательный, умеющий достать лучшее из
+              модели и снять действительно красиво и интересно. Он делает много
+              фото в поисках наилучшего угла съёмки, так что потом есть из чего
+              выбрать, и что было особенно интересно, хотя и немного сложно -
+              предлагает определённый сюжет / историю, так что можно
+              почувствовать себя немного актрисой. Надеюсь, мы ещё посни..."
+            </p>
+            <h3>リア</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "Taylan is such a talented and fun photographer. It is a pleasure
+              to work with him as he has a joyful personnality and never
+              hesitate to propose bold and creative ideas! I highly recommend
+              working with him as he'll help you realise any artistic ideas you
+              may have. You won't be disappointed and you'll have an amazing
+              time. I can't wait to work again with you Tay! Keep up the good
+              work!"
+            </p>
+            <h3>Marie Lea</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "
+              2回撮影をさせていただこました。優しくてフレンドリーですごくいい方なのでとても楽しかったです！モデルのチャームポイントをとり出してくれるストーリーまで考える天才フォトグラファーさんだと思います。写真と動画のセンスが素晴らしくて、1番いいアングルを探してくれて、素敵な写真が沢山出来ました。ありがとうございます。またぜひよろしくお願いします！"
+            </p>
+            <h3>Nathalia</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "Тайлан прекрасный человек и талантливый фотограф, очень добрый и
+              лёгкий в общении, очень внимательный, умеющий «вытащить» лучшее из
+              модели и снять действительно красиво и интересно. Он делает много
+              фотографий в поисках наилучшего угла съёмки, так что потом есть из
+              чего выбрать, и даже предлагает отыграть определённый сюжет /
+              историю, так что можно почувствовать себя немного актрисой.
+              Надеюсь, мы ещё поснимаем что-нибудь вместе :)"
+            </p>
+            <h3>Лия</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "とにかく楽しい撮影でした^
+              ^新しい視点で瞬間を切り取ってくれるカメラマンです。どんな写真を撮りたいかを事前に相談できたし、ポーズのアドバイスも的確で、完成品にとても満足しました。撮りたい写真や動画があるなら、是非彼に頼んでみてください。彼は、本気です。Anyway,
+              it was a fun shoot^ ^He is a photographer who can capture scenes
+              from a perspective that no one can think of. His advice was spot
+              on and I was happy with the finished product. If you want to make
+              a good work, you should ask him."
+            </p>
+            <h3>Tapioka</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "明るくてユーモアがあり、会うと元気になれるようなお人柄です！撮影ではアイデアが豊富で小道具を使ったり、いつも新しいスタイルを提案してくれます。おかげで楽しい撮影になります。また、彼の動画作成のスキルが素晴らしいです。何気ない瞬間を美しくまとめてくれてわくわくするような作品に仕上がり、見るのが楽しみになります。ぜひお会いしてみてください。"
+            </p>
+            <h3>Lina</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "Taylan is incontestably an amazing photographer and a wonderful
+              person. I had such a good experience shooting with him ! He will
+              not only propose great ideas but he also listen attentively to
+              your visions and concepts ideas and will make them happen in a
+              beautiful way~ It is a pleasure to work with him and I will
+              continue to do so ! And I highly recommend you to contact him if
+              you haven't already, you won't be disappointed I'm telling you !
+              😄 Merci beaucoup Tay, tu es incroyable ! ✨️"
+            </p>
+            <h3>Léa</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Tapioka"
+            />
+            <p>
+              "何度か撮影させていただいてますが、いつも楽しい時間を過ごさせてくれて作品も想像以上のものを撮ってくれるので信頼しています。私のチャームポイントやその日のお気に入りの箇所（ピアス、靴とか）を伝えなくても気づいてくれて、しっかりポイントをおさえてくれるクリエーターなので毎度撮影が楽しみで仕方がありません。私は被写体として自信はないけど、彼の指示に従っているうちに楽しくなって自然に動けるようになりました。写真は苦手だったけど彼のおかげで好きになりました。"
+            </p>
+            <h3>aca_1122</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "I've had several shoots with him and I trust him because he is
+              always fun and takes better photos than I imagined every time. He
+              is a creator who can capture model the charm and fashion points if
+              we don`t tell him. I think it`s his talent . I`m not good at
+              modeling, but his advice are magic to relieve my nervousness, and
+              before I knew it, I was able to move naturally. Thanks to him, I
+              like more photo shooting."
+            </p>
+            <h3>Akiko</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "At first, I was referred to you by the company, but he is always
+              looking after me. I talked a lot during the shooting, so I was
+              able to shoot naturally without being nervous! Taylan also makes
+              videos, and I like them cuz they are very complete. Also, this is
+              a cameraman who wants you to shoot! Thank you as always ☺️"
+            </p>
+            <h3>Ria</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "楽しく会話をしながら素の自分を引き出してくれました。また撮影をお願いします！"
+            </p>
+            <h3>Kensho</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "今までに3回撮影をしていただいています。すごく楽しくていつもあっという間に時間が過ぎます。明るくて優しい方なのでリラックスして撮影に挑めます！動画も撮ってくれるのでいつも完成が楽しみです✌️これからもよろしくお願いいたします😊✨📷️"
+            </p>
+            <h3>Kana</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "Amazing photos Mate! You have a professional and impressive
+              approaches. You capture your models in a natural and striking way.
+              The organized presentation on your website will impress potential
+              customers. Keep up the great work!"
+            </p>
+            <h3>Volkan</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "He is amazing photographer. His idea of how should I pose, way of
+              taking pics are on point."
+            </p>
+            <h3>Nachika</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "すごく話しやすくてリラックスして撮影してもらえました！
+              どんな雰囲気の写真がいいか要望も聞いてくれるので、自分の理想の写真を撮ってもらうことができました！"
+            </p>
+            <h3>Akane</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "Taylan is super friendly and doesn't make me feel uncomfortable
+              at all during shoots! It's always a chill time with him and he's
+              always open to any ideas you have! Thank you always, Taylan! I'll
+              forever work with you!"
+            </p>
+            <h3>Diane</h3>
+          </div>
+          <div class="testimonial-item">
+            <img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742"
+              alt="Zoomed Image"
+              class="akiko"
+            />
+            <p>
+              "Did shooting together twice and Taylan was really kind and
+              friendly and paid lots of attention to the details, searching for
+              the best angles and poses, he not only takes pictures, but also
+              creates a story. I think, he is amazing photographer and talented
+              videographer. Thank you for taking so lovely pictures and video of
+              me! Hope we go shooting again in the near future."
+            </p>
+            <h3>Nat</h3>
+          </div>
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </section>
+    <!-- Wave Below "Book Me for an Event" -->
+    <div class="wave-container wave-bottom">
+      <svg viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="#ADD8E6"
+          fill-opacity="1"
+          d="M0,192L30,181.3C60,171,120,149,180,122.7C240,96,300,64,360,58.7C420,53,480,75,540,101.3C600,128,660,160,720,154.7C780,149,840,107,900,96C960,85,1020,107,1080,128C1140,149,1200,171,1260,186.7C1320,203,1380,213,1410,218.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About Me</h3>
+          <p style="font-family: 'futura-pt', sans-serif">
+            I’m Taylan Topuz, a passionate photographer and videographer based
+            in Tokyo. Explore my portfolio to see my work and get in touch for
+            collaborations!
+          </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="photo.html">Photography</a></li>
+            <li><a href="videography.html">Videography</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li>
+              <a
+                href="https://www.instagram.com/tay.camera"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+            </li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/taylan-topuz/"
+              class="social-icon"
+              ><img
+                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057"
+                alt="LinkedIn"
+            /></a>
+            <a href="https://www.instagram.com/tay.camera" class="social-icon"
+              ><img
+                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526"
+                alt="Instagram"
+            /></a>
+            <a href="mailto:ttopuz@outlook.jp" class="social-icon"
+              ><img
+                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198"
+                alt="Email"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p style="font-family: 'futura-pt', sans-serif">
+          &copy; 2024 Taylan Topuz. All rights reserved.
+        </p>
+
+        <a href="#" class="back-to-top">Back to Top</a>
+      </div>
+    </footer>
+  </body>
+</html>

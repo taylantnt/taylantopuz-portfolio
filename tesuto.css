@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.switch-container {
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.switch {
+  width: 50px; /* Adjusted width to half of the container */
+  height: 50px;
+  background-color: #de8435;
+  border-radius: 50%; /* Changed to make it circular */
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
+  left: 0; /* Start position */
+}
+
+.switch.on {
+  transform: translateX(50px); /* Move to the right edge */
+}

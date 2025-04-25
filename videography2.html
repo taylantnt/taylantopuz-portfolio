@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videography Page</title>
+<!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/apple-touch-icon.png?v=1725390980958">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/favicon-32x32.png?v=1725390862482">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/favicon-16x16.png?v=1725390856540">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/safari-pinned-tab.svg?v=1725391193481" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <!-- External CSS for fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="videography.css">
+    <link rel="stylesheet" href="circles.css">
+    <link rel="stylesheet" href="toggle.css">
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  var navLinks = document.getElementById("nav-links");
+  var hamburger = document.getElementById("hamburger");
+
+  hamburger.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+    hamburger.classList.toggle("open");
+    document.body.classList.toggle("no-scroll");
+  });
+
+function openModal(videoUrl) {
+    var modal = document.getElementById("videoModal");
+    var iframe = document.getElementById("youtubePlayer");
+    iframe.src = videoUrl;
+
+    // Make the modal visible
+    modal.style.display = "block";
+
+    // Allow the transition effect to apply by using a short delay
+    setTimeout(function () {
+        modal.classList.add("show");
+    }, 10); // Slight delay to ensure the display change happens first
+
+    // Disable body scroll
+    document.body.classList.add("no-scroll");
+}
+
+function closeModal() {
+    var modal = document.getElementById("videoModal");
+    var iframe = document.getElementById("youtubePlayer");
+    iframe.src = "";
+
+    // Remove the show class to start the fade-out transition
+    modal.classList.remove("show");
+
+    // Wait for the transition to complete before hiding the modal
+    setTimeout(function () {
+        modal.style.display = "none";
+    }, 700); // Match the transition duration in the CSS
+
+    // Re-enable body scroll
+    document.body.classList.remove("no-scroll");
+}
+
+// Add the event listener for the close button
+var closeBtn = document.querySelector(".modal .close");
+closeBtn.addEventListener("click", closeModal);
+
+// Close the modal if the user clicks outside of it
+window.addEventListener("click", function (event) {
+    var modal = document.getElementById("videoModal");
+    if (event.target == modal) {
+        closeModal();
+    }
+});
+  
+  const circles = document.querySelectorAll('.circle');
+  circles.forEach(circle => {
+    circle.addEventListener('click', function (event) {
+      if (window.innerWidth <= 768) { // Check if the view is mobile
+        if (circle.classList.contains('highlight')) {
+          const video = circle.querySelector('video');
+          const url = video.getAttribute('onclick').match(/'([^']+)'/)[1];
+          openModal(url);
+        } else {
+          event.preventDefault();
+          circles.forEach(c => c.classList.remove('highlight')); // Remove highlight from other circles
+          circle.classList.add('highlight');
+        }
+      } else {
+        const video = circle.querySelector('video');
+        const url = video.getAttribute('onclick').match(/'([^']+)'/)[1];
+        openModal(url);
+      }
+    });
+  });
+});
+              
+document.addEventListener('DOMContentLoaded', function () {
+    // Language selector
+    const languageToggle = document.getElementById('languageToggle');
+    const inspirationHeader = document.querySelector('.inspiration h2');
+    const inspirationParagraphs = document.querySelectorAll('.inspiration p');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const textContent = {
+        en: {
+            inspirationHeader: "Pouring My Heart and Soul into Every Frame",
+            inspirationParagraphs: [
+                "Every project I undertake is a labor of love, a testament to my dedication and passion for capturing the essence of each moment. From the initial concept to the final edit, I pour my heart and soul into every frame, ensuring that each video tells a unique and compelling story.",
+                "If you are looking for a videographer who is committed to excellence and who will work tirelessly to bring your vision to life, I invite you to explore my portfolio below. Let's collaborate and create something truly special together.",
+                "Check out my videography portfolio below and see for yourself the passion and creativity that goes into every project."
+            ],
+            navLinks: [
+                "Photography",
+                "Videography",
+                "Booking",
+                "Instagram",
+                "Reviews"
+            ]
+        },
+        jp: {
+            inspirationHeader: "すべてのフレームに心と魂を注ぎ込む",
+            inspirationParagraphs: [
+                "私が取り組むすべてのプロジェクトは、愛の労働であり、各瞬間の本質を捉えることへの献身と情熱の証です。初期のコンセプトから最終編集まで、私はすべてのフレームに心と魂を注ぎ込み、各ビデオがユニークで魅力的なストーリーを語ることを保証します。",
+                "卓越性にコミットし、あなたのビジョンを実現するために一生懸命働くビデオグラファーをお探しの場合は、以下のポートフォリオをご覧ください。一緒に本当に特別なものを作りましょう。",
+                "以下のビデオグラフィーポートフォリオをチェックして、各プロジェクトに注がれる情熱と創造性をご覧ください。"
+            ],
+            navLinks: [
+                "写真",
+                "ビデオ",
+                "予約",
+                "インスタグラム",
+                "レビュー"
+            ]
+        }
+    };
+
+    function updateTextContent(language) {
+        inspirationHeader.textContent = textContent[language].inspirationHeader;
+        inspirationParagraphs.forEach((p, index) => {
+            p.textContent = textContent[language].inspirationParagraphs[index];
+        });
+        navLinks.forEach((link, index) => {
+            link.textContent = textContent[language].navLinks[index];
+        });
+    }
+
+    // Initial text content
+    updateTextContent('en');
+
+    // Event listener for language toggle
+    languageToggle.addEventListener('click', function () {
+        const currentLanguage = languageToggle.classList.contains('jp') ? 'jp' : 'en';
+        const newLanguage = currentLanguage === 'en' ? 'jp' : 'en';
+        languageToggle.classList.toggle('jp');
+        languageToggle.classList.toggle('en');
+        updateTextContent(newLanguage);
+    });
+});
+
+function toggleLanguage(toggle) {
+    toggle.classList.toggle('active');
+}
+    </script>
+      
+    </script>
+</head>
+<body>
+      <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img
+          src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219"
+          alt="Logo"
+        />
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="photo.html">Photography</a>
+        <a href="#videography" style="text-decoration: underline">Videography</a>
+        <a href="booking.html">Booking</a>
+        <a
+          href="https://www.instagram.com/tay.camera"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
+        >
+        <a href="reviews.html">Reviews</a>
+      </div>
+       <!-- Move the language toggle here -->
+        <div id="languageToggle" class="toggle-container" onclick="toggleLanguage(this)">
+        <span class="toggle-label en-label">JP</span>
+        <div class="toggle-ball"></div>
+        <span class="toggle-label jp-label">EN</span>
+    </div>
+    </nav>
+    <style>
+      .nav-links a {
+        font-family: 'Baloo 2', 'Noto Sans JP', sans-serif; 
+      }
+      .navbar {
+        z-index: 10001;
+      }
+    </style>
+    <header>
+        <div class="video-mask">
+            <video autoplay muted loop playsinline>
+                <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Vf4VaSF47QD_360.mp4?v=1724093301616" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <svg viewbox="0 0 100 50" preserveaspectratio="none">
+                <path d="M0,50 Q50,0 100,50 Z" />
+            </svg>
+        </div>
+    </header>
+    <main>
+              <!-- Inspiration Section -->
+        <section class="inspiration">
+            <h2 style="color: #de8435;">Pouring My Heart and Soul into Every Frame</h2>
+            <p>
+                Every project I undertake is a labor of love, a testament to my dedication and passion for capturing the essence of each moment. From the initial concept to the final edit, I pour my heart and soul into every frame, ensuring that each video tells a unique and compelling story.
+            </p>
+            <p>
+                If you are looking for a videographer who is committed to excellence and who will work tirelessly to bring your vision to life, I invite you to explore my portfolio below. Let's collaborate and create something truly special together.
+            </p>
+            <p>
+                Check out my videography portfolio below and see for yourself the passion and creativity that goes into every project.
+            </p>
+        </section>
+      
+     <!-- Container for the circle grid -->
+<div class="container" style="margin-top: 0px !important;"> 
+  <div class="circle-grid">
+    <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/bAPVlFTGMOw?autoplay=1')">
+        <source src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Daiba.mp4?v=1725814389028" type="video/mp4">
+      </video>
+      <div class="title">Daiba</div>
+    </div>
+    <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/vB_3ndH8lY0?autoplay=1')">
+        <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/shisha.mp4?v=1725814390412" type="video/mp4">
+      </video>
+      <div class="title">Shisha</div>
+    </div>
+    <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/rC12Gqv31Ic?autoplay=1')">
+        <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Smooth%20MF%20-%20Dance%20Video.mp4?v=1725814324213" type="video/mp4">
+      </video>
+      <div class="title">Smooth MF</div>
+    </div>
+    <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/bW9YdZRjt7s?autoplay=1')">
+        <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/cosmos.mp4?v=1725814649535" type="video/mp4">
+      </video>
+      <div class="title">Cosmos</div>
+    </div>
+    <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/IsErnuCc-Lk?autoplay=1')">
+        <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/The%20Search.mp4?v=1725814661291" type="video/mp4">
+      </video>
+      <div class="title">The Search</div>
+    </div>
+    <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/8DfuK-fdIUw?autoplay=1')">
+        <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Nachika%20Dance.mp4?v=1725815516173" type="video/mp4">
+      </video>
+      <div class="title">Bong Bing Challange</div>
+    </div>
+      <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/T3EG0Q60XhU?autoplay=1')">
+        <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/oasis.mp4?v=1725821697202" type="video/mp4">
+      </video>
+      <div class="title">Oasis</div>
+    </div>
+      <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/bAPVlFTGMOw?autoplay=1')">
+        <source src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Daiba.mp4?v=1725814389028" type="video/mp4">
+      </video>
+      <div class="title">Daiba</div>
+    </div>
+      <div class="circle">
+  <video autoplay playsinline muted loop onclick="openModal('https://www.youtube.com/embed/bAPVlFTGMOw?autoplay=1')">
+        <source src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Daiba.mp4?v=1725814389028" type="video/mp4">
+      </video>
+      <div class="title">Daiba</div>
+    </div>
+  </div>
+        </div>
+    </main>
+      <!-- Wave Below "Book Me for an Event" -->
+    <div class="wave-container wave-bottom">
+      <svg viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="#ADD8E6"
+          fill-opacity="1"
+          d="M0,192L30,181.3C60,171,120,149,180,122.7C240,96,300,64,360,58.7C420,53,480,75,540,101.3C600,128,660,160,720,154.7C780,149,840,107,900,96C960,85,1020,107,1080,128C1140,149,1200,171,1260,186.7C1320,203,1380,213,1410,218.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About Me</h3>
+          <p style="font-family: 'futura-pt', sans-serif">
+            I’m Taylan Topuz, a passionate photographer and videographer based
+            in Tokyo. Explore my portfolio to see my work and get in touch for
+            collaborations!
+          </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="photo.html">Photography</a></li>
+            <li><a href="videography.html">Videography</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li>
+              <a
+                href="https://www.instagram.com/tay.camera"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+            </li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/taylan-topuz/"
+              class="social-icon"
+              ><img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057"
+                alt="LinkedIn"
+            /></a>
+            <a href="https://www.instagram.com/tay.camera" class="social-icon"
+              ><img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526"
+                alt="Instagram"
+            /></a>
+            <a href="mailto:ttopuz@outlook.jp" class="social-icon"
+              ><img
+              src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198"
+                alt="Email"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p style="font-family: 'futura-pt', sans-serif">
+          &copy; 2025 Taylan Topuz. All rights reserved.
+        </p>
+
+        <a href="#" class="back-to-top">Back to Top</a>
+      </div>
+    </footer>
+  <!-- Modal Structure -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="video-container">
+      <iframe id="youtubePlayer" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+</body>
+</html>

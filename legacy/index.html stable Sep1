@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taylan Topuz Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn.glitch.global//website%20icon.ico?v=1724511730117" type="image/x-icon">
+  <link rel="icon" href="https://cdn.glitch.global//logo.png?v=1724123424610" type="image/png"> 
+  <!-- External CSS for fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css"> 
+  <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+// Add 'scrolled' class to navbar when page is scrolled down
+window.addEventListener('scroll', function() {
+  var navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Toggle navigation menu on hamburger click
+document.addEventListener('DOMContentLoaded', function() {
+  var navLinks = document.getElementById("nav-links");
+  var hamburger = document.getElementById("hamburger");
+
+  hamburger.addEventListener("click", function() {
+    navLinks.classList.toggle("open");
+    hamburger.classList.toggle("open");
+    document.body.classList.toggle("no-scroll");
+  });
+});
+
+    // Secret click event for logo
+    document.addEventListener('DOMContentLoaded', function() {
+      var secretElement = document.querySelector('.logo');
+      var clickCount = 0;
+      var maxClicks = 5; // Number of clicks required
+
+      secretElement.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default navigation behavior
+
+        clickCount++;
+        
+        // Add the flash effect
+        secretElement.classList.add('flash');
+        
+        // Remove the flash class after the animation duration
+        setTimeout(function() {
+          secretElement.classList.remove('flash');
+        }, 300); // Match the duration of the flash-animation (0.3s)
+
+        if (clickCount === maxClicks) {
+          // Redirect to secret.html
+          window.location.href = 'secret.html';
+        }
+      });
+    }); 
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo">
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="photo.html">Photography</a>
+      <a href="videography.html">Videography</a>
+      <a href="booking.html">Booking</a>
+      <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </nav>
+  
+  <style>
+    .nav-links a {
+      font-family: 'futura-pt', sans-serif;
+      font-weight: 100;
+    }
+  </style>
+
+  <!-- Masthead Section -->
+  <header class="masthead">
+    <video autoplay muted loop playsinline id="masthead-video">
+      <source src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/Vf4VaSF47QD_360.mp4?v=1724093301616" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1></h1>
+<h3 style="font-family: 'futura-pt', sans-serif; font-size: 20px; padding: 15px; color: white;">
+    Choose a category below to see examples of my work
+</h3>
+      <div class="button-container">
+        <a href="photo.html" class="transparent-button">Photography</a>
+        <a href="videography.html" class="transparent-button">Videography</a>
+      </div>
+      
+      <!-- Social Buttons -->
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram"></a>
+        <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email"></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <a href="booking.html" class="booking-link full-click">
+      <h2>Book Me for an Event!</h2>
+<style>
+  /* Ensure the hover color changes as intended */
+  p.first:hover {
+    color: darkgray !important; /* Hover color for the first paragraph */
+  }
+  
+  p.second:hover {
+    color: #de8435 !important; /* Hover color for the second paragraph */
+  }
+</style>
+
+<p class="first" style="font-family: 'futura-pt', sans-serif; color: white; font-size: 1.3rem;">
+  Capture the essence of your cherished moments with professional photography and videography that faithfully narrate your story. Whether it be a solemn wedding ceremony, a corporate gathering, or a private celebration, I combine my creative acumen with technical proficiency to meticulously preserve every detail in exceptional quality.
+</p>
+<p class="second" style="font-family: 'futura-pt', sans-serif; text-decoration: underline; color: white; font-size: 1.1rem;">
+  Click to Learn More...
+</p>
+    </a>
+  </section>
+
+  <!-- Wave Below "Book Me for an Event" -->
+  <div class="wave-container wave-bottom">
+    <svg viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#ADD8E6" fill-opacity="1" d="M0,192L30,181.3C60,171,120,149,180,122.7C240,96,300,64,360,58.7C420,53,480,75,540,101.3C600,128,660,160,720,154.7C780,149,840,107,900,96C960,85,1020,107,1080,128C1140,149,1200,171,1260,186.7C1320,203,1380,213,1410,218.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+    </svg>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <!-- About Section -->
+      <div class="footer-section about">
+        <h3>About Me</h3>
+<p style="font-family: 'futura-pt', sans-serif;">
+  I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+</p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="photo.html">Photography</a></li>
+          <li><a href="videography.html">Videography</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram"></a>
+          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+<p style="font-family: 'futura-pt', sans-serif;">
+  &copy; 2024 Taylan Topuz. All rights reserved.
+</p>
+
+      <a href="#" class="back-to-top">Back to Top</a>
+    </div>
+  </footer>
+</body>
+</html>
