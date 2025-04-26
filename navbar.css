@@ -5,10 +5,10 @@ body {
   font-style: normal; /* Normal font style */
   color: var(--text-color); /* Text color */
   background-color: var(--background-color); /* Background color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
-  width: 100%;
   height: 100%;
   padding: 20px; /* Adjust as needed */
 }
@@ -18,18 +18,11 @@ body {
 
 }
 
-/* Headings Styling */
-h1,
-h2,
-h3 {
-  font-family: "futura-pt", sans-serif; /* Font family */
-  font-weight: bold; /* Bold font weight */
-}
+
 
 /* Logo Image Styling */
 .logo img {
   height: 60px; /* Height of the logo */
-  display: block;
   padding-right: 0px; /* Padding to the right */
   transition: all 0.4s ease; /* Smooth transition */
   margin-left: 0 auto;
@@ -163,11 +156,12 @@ h3 {
   .hamburger {
     display: flex; /* Show hamburger menu */
     position: absolute; /* Absolute position */
-    left: 20px; /* Align to the right */
+    left: 30px; /* Align to the right */
     top: 22px; /* Align to the top */
   }
 
   .nav-links {
+    z-index: 0;
     position: fixed; /* Fixed position */
     right: 0px; /* Align to the right */
     top: 0px; /* Align to the top */

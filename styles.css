@@ -15,6 +15,14 @@ html,
       padding: 0;
     }
 
+/* Headings Styling */
+h1,
+h2,
+h3 {
+  font-family: "futura-pt", sans-serif; /* Font family */
+  font-weight: bold; /* Bold font weight */
+  font-size: 2.1em;
+}
 /* Colors */
 :root {
   --primary-color: #333333; /* Dark gray for primary elements */
@@ -131,6 +139,7 @@ html,
   color: #fff;
   padding: 10px 20px;
   margin: 10px;
+  font-size: 1.5em;
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
   backdrop-filter: blur(10px) !important; /* Existing line */
@@ -235,7 +244,6 @@ section {
   .contact-section h2 {
     color: var(--accent-color); /* Accent color for the heading */
     text-decoration: none;
-    font-size: 2rem; /* Smaller heading on smaller screens */
     margin-bottom: 20px; /* Margin below the heading */
   }
 
@@ -271,7 +279,137 @@ section {
 }
 
 
-/*BURDAN ITIBAREN CUSTOMER REVIEW
+/* Masthead Social Icons Styling */
+.masthead-social {
+  margin-top: 30px;
+}
+
+.masthead-social .social-icon img {
+  width: 35px;
+  height: 35px;
+  filter: invert(1);
+  transition: transform 0.3s ease;
+}
+
+.masthead-social .social-icon:hover img {
+  transform: scale(1.2);
+}
+
+/* Gallery Section Styling */
+.gallery-section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.gallery-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: var(--accent-color);
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.view-more-container {
+  margin-top: 40px;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #de8435;
+  transform: translateY(-3px);
+}
+
+/* About Section Styling */
+.about-section {
+  padding: 60px 20px;
+  background-color: #111111;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-content {
+  flex: 2;
+  min-width: 300px;
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* Responsive styles for about section */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+  
+  .about-image, .about-content {
+    flex: 1 1 100%;
+  }
+}
 
 /* Testimonial Section */
 .testimonial-section {
@@ -426,7 +564,7 @@ section {
   margin: 20px auto; /* Margin around the section */
   max-width: 800px; /* Maximum width */
   background-color: var(--secondary-color); /* Background color */
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 30px; /* Rounded corners */
 }
   
   .testimonial-section {

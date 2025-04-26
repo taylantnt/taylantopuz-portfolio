@@ -1,0 +1,74 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 90%;
+}
+
+/* Body Styling */
+body {
+  font-weight: 100; /* Light font weight */
+  font-style: normal; /* Normal font style */
+  color: var(--text-color); /* Text color */
+  background-color: white; /* Background color */
+}
+
+/* Media Query for Screens Narrower than 720px */
+@media screen and (max-width: 800px) {
+  
+  /* Testimonial Section */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* This creates a 1:1 aspect ratio, adjust as needed */
+    height: 10%;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px 20px;;
+    width: 100%;
+    height: 10%;
+    border: 0; 
+  }
+}
+
+/* Colors */
+:root {
+  --primary-color: #333333; /* Dark gray for primary elements */
+  --secondary-color: #666666; /* Medium gray for secondary elements */
+  --accent-color: #de8435; /* Orange for accents */
+  --text-color: #cccccc; /* Light gray for text */
+  --background-color: #000000; /* Black for background */
+  --button-color: #444444; /* Dark gray for buttons */
+  --button-hover-color: #555555; /* Slightly lighter gray for button hover state */
+  --navbar-hover-color: #444444; /* Dark gray for navbar hover state */
+}
+
+
+/* Testimonial Section */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 200%; /* This creates a 1:1 aspect ratio, adjust as needed */
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px 30px;;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

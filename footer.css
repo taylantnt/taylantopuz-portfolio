@@ -56,6 +56,7 @@ footer {
   margin-bottom: 15px; /* Margin to the bottom */
   color: var(--accent-color); /* Text color */
   text-decoration: underline;
+  font-size: 1.1em;
 }
 
 /* Footer Section Paragraph and List Styling */

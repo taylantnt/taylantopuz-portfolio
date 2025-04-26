@@ -1,367 +1,236 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videography Projects</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-        <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/apple-touch-icon.png?v=1725390980958" />
-      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-      <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/favicon-32x32.png?v=1725390862482" />
-      <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/favicon-16x16.png?v=1725390856540" />
-      <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/safari-pinned-tab.svg?v=1725391193481" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore my videography portfolio showcasing creative video projects and professional video production work." />
+    <meta name="keywords" content="Videography, Video Production, Portfolio, Tokyo, Taylan Topuz" />
+    <meta name="author" content="Taylan Topuz" />
+    <title>Videography - Taylan Topuz</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/apple-touch-icon.png?v=1725390980958" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/favicon-32x32.png?v=1725390862482" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/favicon-16x16.png?v=1725390856540" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/safari-pinned-tab.svg?v=1725391193481" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-      <!-- External CSS for fonts -->
-      <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
-      <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
-      <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- External CSS for fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
-      <!-- Main stylesheet -->
-      <link rel="stylesheet" href="footer.css" />
-      <link rel="stylesheet" href="navbar.css" />
-
-      <link rel="stylesheet" href="toggle.css" />
-     <link rel="stylesheet" href="videography.css" />
-
-    <style>
-    </style>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="toggle.css" />
+    <link rel="stylesheet" href="videography.css" />
   </head>
   <body>
-      <!-- Masthead Section -->
-      <header class="masthead">
-        <video autoplay muted loop playsinline id="masthead-video">
-          <source src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/headmast.mov?v=1725817366518" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="overlay">
-          <h1></h1>
-          <h3 id="categoryText" style="font-family: 'futura-pt', sans-serif; font-size: 20px; padding: 15px; color: white;">
-            Check out my videography portfolio below and see for yourself the passion and creativity that goes into every project.
-          </h3>
-          <div class="button-container">
-            <a href="#featured-projects" id="photographyButton" class="transparent-button">Featured Projects</a>
-            <a href="#all-projects" id="videographyButton" class="transparent-button">All Projects</a>
-          </div>
-        </div>
-      </header>
-    <!-- Featured Projects Section -->
-<section id="featured-projects" class="featured-projects">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo" />
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="photo.html">Photography</a>
+        <a href="videography.html">Videography</a>
+        <a href="booking.html">Booking</a>
+        <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <!-- Language Toggle -->
+      <div id="languageToggle" class="toggle-container">
+        <span class="toggle-label en-label">EN</span>
+        <div class="toggle-ball"></div>
+        <span class="toggle-label jp-label">JP</span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <video autoplay muted loop playsinline id="hero-video">
+        <source src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/headmast.mov?v=1725817366518" type="video/mp4" />
+      </video>
+      <div class="hero-content">
+        <h1 class="fade-in" data-en="Videography Portfolio" data-jp="ビデオ作品集">Videography Portfolio</h1>
+        <p class="fade-in" data-en="Capturing stories through motion" data-jp="動きで物語を伝える">Capturing stories through motion</p>
+      </div>
+      <div class="scroll-indicator">
+        <span class="scroll-text" data-en="Scroll to explore" data-jp="スクロールして探索">Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
       <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="carousel-container">
-          <button class="carousel-btn prev" aria-label="Previous Project">❮</button>
-          <div class="carousel">
-            <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 1" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 1</h3>
-                  <p class="video-description">Description of Project 1</p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-             <div class="carousel-item">
-              <div class="video-card">
-                <img                   src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg"
-   alt="Project 2" class="video-thumbnail">
-                <div class="video-info">
-                  <h3 class="video-title">Project 2</h3>
-                  <p class="video-description">Description of Project 2</p>
-                </div>
-              </div>
-            </div>
-            <!-- Add more projects as needed -->
-          </div>
-          <button class="carousel-btn next" aria-label="Next Project">❯</button>
+        <div class="category-filters">
+          <button class="category-btn active" data-category="all" data-en="All Work" data-jp="全ての作品">All Work</button>
+          <button class="category-btn" data-category="short-movies" data-en="Short Movies" data-jp="ショートムービー">Short Movies</button>
+          <button class="category-btn" data-category="portrait" data-en="Portrait" data-jp="ポートレート">Portrait</button>
+          <button class="category-btn" data-category="events" data-en="Events" data-jp="イベント">Events</button>
         </div>
       </div>
     </section>
 
-    <!-- All Projects Section -->
-<section id="all-projects" class="all-projects">
+    <!-- Featured Projects -->
+    <section class="featured-projects">
       <div class="container">
-        <h2>All Projects</h2>
-        <div class="video-grid">
-          <div class="video-tile" data-youtube-id="dQw4w9WgXcQ">
-            <img src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg" alt="Project 1" class="video-thumbnail">
-            <div class="video-title-overlay">
-              <h3>Project 1</h3>
+        <h2 class="section-title" data-en="Featured Projects" data-jp="注目作品">Featured Projects</h2>
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <div class="project-card" data-category="commercial">
+            <div class="project-thumbnail">
+              <img src="https://cdn.glitch.global/20bdc62f-27d7-4e60-a6aa-ee3328bf06ae/1?v=1745649293174" alt="Commercial Project" />
+              <div class="project-overlay">
+                <h3>Tokyo Nights</h3>
+                <p>Commercial Film</p>
+                <button class="play-btn" data-video-id="dQw4w9WgXcQ">Watch Film</button>
+              </div>
             </div>
           </div>
-          <div class="video-tile" data-youtube-id="C0DPdy98e4c">
-            <img src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg" alt="Project 2" class="video-thumbnail">
-            <div class="video-title-overlay">
-              <h3>Project 2</h3>
+          <!-- Project 2 -->
+          <div class="project-card" data-category="documentary">
+            <div class="project-thumbnail">
+              <img src="https://cdn.glitch.global/20bdc62f-27d7-4e60-a6aa-ee3328bf06ae/1?v=1745649293174" alt="Documentary Project" />
+              <div class="project-overlay">
+                <h3>Street Culture</h3>
+                <p>Documentary</p>
+                <button class="play-btn" data-video-id="C0DPdy98e4c">Watch Film</button>
+              </div>
             </div>
           </div>
-                    <div class="video-tile" data-youtube-id="C0DPdy98e4c">
-            <img src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg" alt="Project 2" class="video-thumbnail">
-            <div class="video-title-overlay">
-              <h3>Project 2</h3>
-            </div>
-          </div>
-                    <div class="video-tile" data-youtube-id="C0DPdy98e4c">
-            <img src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg" alt="Project 2" class="video-thumbnail">
-            <div class="video-title-overlay">
-              <h3>Project 2</h3>
-            </div>
-          </div>
-                    <div class="video-tile" data-youtube-id="C0DPdy98e4c">
-            <img src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg" alt="Project 2" class="video-thumbnail">
-            <div class="video-title-overlay">
-              <h3>Project 2</h3>
-            </div>
-          </div>
-                    <div class="video-tile" data-youtube-id="C0DPdy98e4c">
-            <img src="https://public.readdy.ai/ai/img_res/3161183b8f23c34e1ed4968c0fb5350d.jpg" alt="Project 2" class="video-thumbnail">
-            <div class="video-title-overlay">
-              <h3>Project 2</h3>
-            </div>
-          </div>
-          <!-- Add more projects as needed -->
+          <!-- Add more project cards as needed -->
         </div>
       </div>
     </section>
 
-    <!-- Modal -->
-    <div class="modal" id="videoModal">
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
       <div class="modal-content">
-        <button class="modal-close" id="closeModal">×</button>
-        <iframe id="youtubePlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <button class="close-modal">&times;</button>
+        <div class="video-container">
+          <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3>About Me</h3>
+          <p>I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!</p>
+        </div>
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="photo.html">Photography</a></li>
+            <li><a href="videography.html">Videography</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
+            <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
+            <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Taylan Topuz. All rights reserved.</p>
+        <a href="#" class="back-to-top">Back to Top</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="toggle.js" defer></script>
     <script>
-      // Carousel Navigation
-      document.querySelector(".carousel-btn.prev").addEventListener("click", () => {
-        document.querySelector(".carousel").scrollBy({ left: -300, behavior: "smooth" });
-      });
+      document.addEventListener('DOMContentLoaded', function() {
+        // Navigation functionality
+        const navLinks = document.getElementById('nav-links');
+        const hamburger = document.getElementById('hamburger');
 
-      document.querySelector(".carousel-btn.next").addEventListener("click", () => {
-        document.querySelector(".carousel").scrollBy({ left: 300, behavior: "smooth" });
-      });
-
-      // Modal Functionality
-      const videoTiles = document.querySelectorAll(".video-tile");
-      const modal = document.getElementById("videoModal");
-      const youtubePlayer = document.getElementById("youtubePlayer");
-      const closeModal = document.getElementById("closeModal");
-
-      videoTiles.forEach(tile => {
-        tile.addEventListener("click", () => {
-          const youtubeId = tile.getAttribute("data-youtube-id");
-          youtubePlayer.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
-          modal.classList.add("active");
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('open');
+          hamburger.classList.toggle('open');
         });
-      });
 
-      closeModal.addEventListener("click", () => {
-        youtubePlayer.src = "";
-        modal.classList.remove("active");
-      });
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const projectCards = document.querySelectorAll('.project-card');
 
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          youtubePlayer.src = "";
-          modal.classList.remove("active");
-        }
-      });
+        categoryBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
 
-      <script src="toggle.js" defer></script>
-     <script>
-       document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.getElementById("nav-links");
-    const hamburger = document.getElementById("hamburger");
+            const category = btn.getAttribute('data-category');
+            
+            projectCards.forEach(card => {
+              if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
 
-    // Toggle menu on hamburger click
-    hamburger.addEventListener("click", function () {
-      navLinks.classList.toggle("open");
-      hamburger.classList.toggle("open");
-    });
+        // Video modal functionality
+        const modal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const closeModal = document.querySelector('.close-modal');
+        const playButtons = document.querySelectorAll('.play-btn');
 
-    // Reset menu state on window resize
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 800) {
-        navLinks.classList.remove("open");
-        hamburger.classList.remove("open");
-      }
-    });
-               // Add 'scrolled' class to navbar when page is scrolled down
-        window.addEventListener("scroll", function () {
-          var navbar = document.querySelector(".navbar");
-          if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-          } else {
-            navbar.classList.remove("scrolled");
+        playButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const videoId = button.getAttribute('data-video-id');
+            videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modal.classList.add('active');
+          });
+        });
+
+        closeModal.addEventListener('click', () => {
+          videoPlayer.src = '';
+          modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            videoPlayer.src = '';
+            modal.classList.remove('active');
           }
         });
-  });
-      </script>
-      <script src="include-language-toggle.js" defer></script>
-    </head>
-    <body>
-  <div>
-      </div>
 
-      <!-- Navigation Bar -->
-      <nav class="navbar">
-        <a href="index.html" class="logo">
-          <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo" />
-        </a>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="nav-links" id="nav-links">
-          <a href="photo.html">Photography</a>
-          <a href="videography.html">Videography</a>
-          <a href="booking.html">Booking</a>
-          <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="reviews.html">Reviews</a>
-        </div>
-
-        <!-- Language Toggle -->
-        <div id="languageToggle" class="toggle-container">
-          <span class="toggle-label en-label">EN</span>
-          <div class="toggle-ball"></div>
-          <span class="toggle-label jp-label">JP</span>
-        </div>
-      </nav>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-section about">
-            <h3>About Me</h3>
-            <p style="font-family: 'futura-pt', sans-serif;">
-              I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
-            </p>
-          </div>
-          <div class="footer-section links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="photo.html">Photography</a></li>
-              <li><a href="videography.html">Videography</a></li>
-              <li><a href="booking.html">Booking</a></li>
-              <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="reviews.html">Reviews</a></li>
-            </ul>
-          </div>
-          <div class="footer-section contact">
-            <h3>Contact</h3>
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
-              <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
-              <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p style="font-family: 'futura-pt', sans-serif;">&copy; 2025 Taylan Topuz. All rights reserved.</p>
-          <a href="#" class="back-to-top">Back to Top</a>
-        </div>
-      </footer>
-    </body>
-  </html>
+        // Scroll-based navbar styling
+        window.addEventListener('scroll', function() {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
