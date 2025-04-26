@@ -1,0 +1,223 @@
+
+/* Body Styling */
+body {
+  font-weight: 100; /* Light font weight */
+  font-style: normal; /* Normal font style */
+  color: var(--text-color); /* Text color */
+  background-color: var(--background-color); /* Background color */
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 20px; /* Adjust as needed */
+}
+
+.nav-links a {
+  font-family: 'Baloo 2', 'Noto Sans JP', sans-serif; 
+
+}
+
+/* Headings Styling */
+h1,
+h2,
+h3 {
+  font-family: "futura-pt", sans-serif; /* Font family */
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Logo Image Styling */
+.logo img {
+  height: 60px; /* Height of the logo */
+  display: block;
+  padding-right: 0px; /* Padding to the right */
+  transition: all 0.4s ease; /* Smooth transition */
+  margin-left: 0 auto;
+}
+
+/* Hover State for Logo Image */
+.logo img:hover {
+  filter: brightness(1); /* Increase brightness on hover */
+}
+
+/* Navbar Styling */
+.navbar {
+ display: flex;
+  justify-content: flex-start; /* Align items to the start */
+  text-transform: uppercase; /* Uppercase text */
+  padding: 10px 10px; /* Padding inside the navbar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* Scrolled State for Navbar */
+.navbar.scrolled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(71, 71, 71, 0.3); /* Semi-transparent background */
+  backdrop-filter: blur(100px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  z-index: -1; /* Place behind navbar content */
+  pointer-events: none; /* Prevent interaction */
+}
+
+/* Ensure the navbar content is above the pseudo-element */
+.navbar > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  display: flex; /* Show hamburger menu */
+  flex-direction: column; /* Stack lines vertically */
+  cursor: pointer; /* Pointer cursor */
+  z-index: 1001; /* Ensure it is above other elements */
+}
+
+/* Hamburger Menu Span Styling */
+.hamburger span {
+  height: 3px; /* Height of each line */
+  width: 40px; /* Width of each line */
+  background: white; /* Line color */
+  margin: 5px 0; /* Spacing between lines */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover State for Hamburger Menu Span */
+.hamburger:hover span {
+  background: var(--accent-color); /* Change background to accent color */
+}
+
+/* Navbar Links Styling */
+.nav-links {
+  display: flex; /* Flexbox for alignment */
+  justify-content: flex-start; /* Align items to the start */
+  align-items: center; /* Center items vertically */
+  margin-left: 20px; /* Margin to the left */
+  z-index: 1000; /* Ensure it is above other elements */
+}
+
+/* Navbar Links Anchor Styling */
+.nav-links a {
+  padding: 20px 19px; /* Padding inside the anchor */
+  text-decoration: none; /* No underline */
+  color: white; /* White text color */
+  font-size: 18px; /* Font size */
+  transition: color 0.3s ease-in-out; /* Smooth color transition */}
+
+/* Hover State for Navbar Links Anchor */
+.nav-links a:hover {
+  color: var(--accent-color); /* Change text color to accent color */
+}
+
+/* Media Query for Screens Wider than 890px */
+@media screen and (min-width: 890px) {
+  .logo {
+    position: relative; /* Relative position */
+    top: 0px; /* Align to the top */
+    left: 20px; /* Align to the left */
+  }
+  .hamburger {
+    display: none; /* Hide hamburger menu */
+  }
+  .nav-links {
+  display: none; /* Hidden by default for smaller screens */
+  flex-direction: row; /* Horizontal layout for larger screens */
+  justify-content: flex-start; /* Align links to the start */
+  align-items: center; /* Center links vertically */
+  gap: 20px; /* Add spacing between links */
+}
+  
+  .nav-links {
+    display: flex; /* Show nav-links */
+    position: static; /* Reset position */
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Allow clicks */
+    transform: none; /* Reset transform */
+    background: none; /* Remove background */
+    height: auto; /* Reset height */
+    width: auto; /* Reset width */
+  }
+}
+
+/* Media Query for Screens Narrower than 889px */
+@media screen and (max-width: 889px) {
+    .logo{
+    position: relative; /* Relative position */
+    right: 10px;
+  }
+  .navbar {
+    justify-content: center; /* Center items on mobile */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger menu */
+    position: absolute; /* Absolute position */
+    left: 20px; /* Align to the right */
+    top: 22px; /* Align to the top */
+  }
+
+  .nav-links {
+    position: fixed; /* Fixed position */
+    right: 0px; /* Align to the right */
+    top: 0px; /* Align to the top */
+    height: calc(100vh - 1px); /* Full height minus 1px */
+    width: 100%; /* Full width */
+    background-color: rgb(222, 132, 53, 0.2); /* Semi-transparent background */
+    backdrop-filter: blur(100px); /* Standard property */
+    -webkit-backdrop-filter: blur(100px) !important; /* Add this line */
+    flex-direction: column; /* Column layout */
+    text-transform: uppercase; /* Uppercase text */
+    justify-content: center; /* Center the links */
+    font-weight: normal;
+    align-items: center; /* Center items vertically */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Prevent clicks when hidden */
+    transform: translateY(-20px); /* Slightly move the menu up */
+    transition: 0.5 ease, visibility 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+    overflow-y: auto;
+  }
+
+ /* Show nav-links when 'open' class is added */
+.nav-links.open {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Allow clicks */
+  transform: translateY(0); /* Reset position */
+}
+
+  .nav-links a {
+  font-family: 'Baloo 2', 'Noto Sans JP', sans-serif; 
+    font-weight: 400;
+    padding: 15px 0; /* Padding inside the anchor */
+    font-size: 34px; /* Font size */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+
+  .nav-links a:hover {
+    color: var(--accent-color); /* Change text color to accent color */
+    transform: scale(1.1); /* Scale up on hover */
+  }
+
+/* Hamburger menu animation when open */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 5px); /* Rotate and move */
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0; /* Hide middle line */
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -5px); /* Rotate and move */
+}
+}

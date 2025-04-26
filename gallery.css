@@ -6,7 +6,7 @@ body {
 
 .gallery {
     margin: 2px;
-    margin-top: 20px;
+    margin-top: 200px;
     margin-left: 5px;
   margin-bottom: 20px;
 }
@@ -47,32 +47,44 @@ body {
   opacity: 1;
 }
 
-/* Back Button Container */
 .back-button-container {
-  text-align: center;
-  margin-top: 5px;
+  position: absolute;
+  top: 100px; /* Adjust to position it above the pictures */
+  left: 20px; /* Align it to the left side of the page */
+  z-index: 100; /* Ensure it stays above other elements */
 }
 
-/* Back Button Styling */
+/* Ensure the back button stays on top and is centered under the navigation bar */
 .back-button {
-  background-color: transparent;
-  color: white;
-  align-items: left; /* Center items vertically */
-  border: none;
-  margin-top: 80px;
-  font-family: 'Baloo 2', Sans Serif;
-  font-weight: 100;
-  font-size: 20px;
+  position: fixed; /* Stick to the page */
+  left: 20px; /* Center horizontally */
+  background-color: rgba(51, 51, 51, 1); /* Default transparent background */
+  color: #de8435; /* Accent color for text */
+  border: none; /* No border */
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 50px;
   text-transform: uppercase; /* Uppercase text */
-  cursor: pointer;
-  border-radius: 5px;
-  text-decoration: underline;
-  transition: all 0.4s ease-in-out; /* Smooth transition */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 50%; /* Circular shape */
+  padding: 0px 0px; /* Padding for the button */
+  transition: all 0.3s ease; /* Smooth transition for hover and scroll effects */
+  z-index: 10000; /* Ensure it stays above all other elements */
+  display: flex; /* Ensure the button is always visible */
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hover State */
 .back-button:hover {
-  color: #de8435;
-  transition: all 0.2s ease-in-out; /* Smooth transition */
+  background-color: var(--accent-color); /* Accent color background */
+  color: white; /* White text color */
+}
+
+/* Scrolled State */
+.back-button.scrolled {
+  background-color: lightgrey; /* Light grey background when scrolled */
+  color: black; /* Black text color for visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 /* Change cursor to pointer on hover */
@@ -85,10 +97,11 @@ body {
 .gallery-item {
   position: relative; /* Enable z-index stacking context */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1; /* Default z-index for gallery items */
 }
 
 .gallery-item:hover {
-  z-index: 100; /* Bring the hovered item to the front */
+  z-index: 10; /* Bring the hovered item to the front, but below the back button */
   transform: scale(1.05); /* Slightly enlarge the image */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 15px #de8435; /* Add highlight color */
 }

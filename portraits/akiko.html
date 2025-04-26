@@ -18,6 +18,7 @@
     <!-- External CSS for fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/nnv7ive.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lyg7bsd.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
       rel="stylesheet"
@@ -34,7 +35,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/grid.css" />
+    <link rel="stylesheet" href="/gallery.css"/>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/footer.css" />
+    <link rel="stylesheet" href="/toggle.css" />
+
+
     <!-- Include Hammer.js via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
     <style>
@@ -98,7 +105,7 @@
       body.no-scroll {
         overflow: hidden;
       }
-
+      
       /* Hide arrows on mobile after half a second */
       @media only screen and (max-width: 768px) {
         .lightbox-prev,
@@ -111,6 +118,7 @@
           opacity: 0;
         }
       }
+      
     </style>
   </head>
 
@@ -118,10 +126,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <a href="/index.html" class="logo">
-        <img
-          src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20gray.png?v=1725035110583"
-          alt="Logo"
-        />
+        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo" />
       </a>
       <div class="hamburger" id="hamburger">
         <span></span>
@@ -129,34 +134,30 @@
         <span></span>
       </div>
       <div class="nav-links" id="nav-links">
-        <a href="/photo.html" style="text-decoration: underline">Photography</a>
-        <a href="/videography.html">Videography</a>
-        <a href="/booking.html">Booking</a>
-        <a
-          href="https://www.instagram.com/tay.camera"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Instagram</a
-        >
-        <a href="/reviews.html">Reviews</a>
+<a href="/photo.html" style="text-decoration: underline" data-en="Photography" data-jp="写真撮影">Photography</a>
+<a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
+<a href="booking.html" data-en="Booking" data-jp="予約">Booking</a>
+<a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a>
+<a href="reviews.html" data-en="Reviews" data-jp="レビュー">Reviews</a>
       </div>
     </nav>
 
     <!-- Masthead Section -->
     <header></header>
 
-    <!-- Back Button -->
 <div class="back-button-container">
-  <button onclick="window.location.href='/photo.html'" class="back-button">Back to Photos</button>
+  <button onclick="history.back()" class="back-button">
+    <i class="ri-arrow-left-line"></i>
+  </button>
 </div>
     
-<!-- Photo Grid Container -->
-<div class="grid-container" id="photo-grid"></div>
-    
-    
-<!-- Photos  -->
+    <div class="gallery">
+        <!-- Photos will be injected here by JavaScript -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script>
-const photoSources = [
+      const photoUrls = [
   "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF1935.jpg?v=1725469686221",
   "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF1944.jpg?v=1725469686982",
   "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF1951.jpg?v=1725469687808",
@@ -177,37 +178,38 @@ const photoSources = [
   "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF2096.jpg?v=1725469699090",
   "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF2097.jpg?v=1725469699725",
   "https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF2104.jpg?v=1725469700454"
-  
   // Add more photo URLs as needed
-];
+      ];
 
-// Function to create the photo grid
-function createPhotoGrid() {
-  const gridContainer = document.getElementById("photo-grid");
+ const gallery = document.querySelector('.gallery');
 
-  photoSources.forEach(src => {
-    // Create the grid-item div
-    const gridItem = document.createElement("div");
-    gridItem.className = "grid-item";
+photoUrls.forEach(url => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  const img = document.createElement('img');
+  img.src = url;
+  img.loading = 'lazy'; // Lazy load the images
+  img.className = 'lightbox-trigger';
+  
+  // Add event listener for when the image is loaded
+  img.onload = function() {
+    img.classList.add('loaded'); // Add 'loaded' class when image is fully loaded
+  };
 
-    // Create the image element with the lightbox-trigger class
-    const img = document.createElement("img");
-    img.src = src;
-    img.className = "lightbox-trigger";
+  item.appendChild(img);
+  gallery.appendChild(item);
+});
 
-    // Append the image to the grid-item div
-    gridItem.appendChild(img);
-
-    // Append the grid-item div to the grid container
-    gridContainer.appendChild(gridItem);
+// Ensure all images are loaded before initializing Masonry
+imagesLoaded(gallery, function() {
+  new Masonry(gallery, {
+    itemSelector: '.gallery-item',
+    columnWidth: '.gallery-item',
+    percentPosition: true
   });
-}
+});
 
-// Call the function to generate the photo grid
-createPhotoGrid();
     </script>
-      <!-- Add more photos as needed -->
-    </div>
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
       <span class="lightbox-close" id="lightbox-close">&times;</span>
@@ -220,62 +222,34 @@ createPhotoGrid();
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section about">
-          <h3>About Me</h3>
-          <p style="font-family: 'futura-pt', sans-serif">
-            I’m Taylan Topuz, a passionate photographer and videographer based
-            in Tokyo. Explore my portfolio to see my work and get in touch for
-            collaborations!
-          </p>
+<h3 data-en="About Me" data-jp="私について">About Me</h3>
+<p data-en="I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!" data-jp="私は東京を拠点とする情熱的な写真家兼ビデオグラファー、タイラン・トプズです。私の作品を見て、コラボレーションのためにご連絡ください！">
+  I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+</p>
         </div>
-
         <div class="footer-section links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/photo.html">Photography</a></li>
-            <li><a href="/videography.html">Videography</a></li>
-            <li><a href="/booking.html">Booking</a></li>
-            <li>
-              <a
-                href="https://www.instagram.com/tay.camera"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Instagram</a
-              >
-            </li>
-            <li><a href="/reviews.html">Reviews</a></li>
-          </ul>
-        </div>
+<h3 data-en="Quick Links" data-jp="クイックリンク">Quick Links</h3>
+<ul>
+  <li><a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a></li>
+  <li><a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a></li>
+  <li><a href="booking.html" data-en="Booking" data-jp="予約">Booking</a></li>
+  <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a></li>
+  <li><a href="reviews.html" data-en="Reviews" data-jp="レビュー">Reviews</a></li>
+</ul>
 
+        </div>
         <div class="footer-section contact">
-          <h3>Contact</h3>
+<h3 data-en="Contact" data-jp="お問い合わせ">Contact</h3>
           <div class="social-icons">
-            <a
-              href="https://www.linkedin.com/in/taylan-topuz/"
-              class="social-icon"
-              ><img
-                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057"
-                alt="LinkedIn"
-            /></a>
-            <a href="https://www.instagram.com/tay.camera" class="social-icon"
-              ><img
-                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526"
-                alt="Instagram"
-            /></a>
-            <a href="mailto:ttopuz@outlook.jp" class="social-icon"
-              ><img
-                src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198"
-                alt="Email"
-            /></a>
+            <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
+            <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
+            <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <p style="font-family: 'futura-pt', sans-serif">
-          &copy; 2024 Taylan Topuz. All rights reserved.
-        </p>
-        <a href="#" class="back-to-top">Back to Top</a>
-      </div>
+<p data-en="&copy; 2025 Taylan Topuz. All rights reserved." data-jp="&copy; 2025 タイラン・トプズ。全著作権所有。">&copy; 2025 Taylan Topuz. All rights reserved.</p>
+<a href="#" class="back-to-top" data-en="Back to Top" data-jp="トップに戻る">Back to Top</a>      </div>
     </footer>
 
     <!-- JavaScript -->
@@ -308,7 +282,7 @@ createPhotoGrid();
         const closeButton = document.getElementById("lightbox-close");
         const prevButton = document.getElementById("lightbox-prev");
         const nextButton = document.getElementById("lightbox-next");
-        const galleryImages = document.querySelectorAll(".grid-item img");
+        const galleryImages = document.querySelectorAll(".lightbox-trigger");
         let arrowTimer;
 
         let currentIndex = 0;
@@ -410,6 +384,28 @@ createPhotoGrid();
             }, 1000);
           }
         });
+        
+document.addEventListener('DOMContentLoaded', () => {
+  const backButton = document.querySelector('.back-button');
+
+  if (!backButton) {
+    console.error('Back button not found!');
+    return;
+  }
+
+  // Add scroll event listener
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      backButton.classList.add('scrolled'); // Add 'scrolled' class when scrolled
+    } else {
+      backButton.classList.remove('scrolled'); // Remove 'scrolled' class when at the top
+    }
+  });
+
+  // Ensure the button is always visible
+  backButton.style.display = 'flex';
+});
+          
       });
     </script>
   </body>
