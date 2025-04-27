@@ -45,10 +45,10 @@
       </div>
       <div class="nav-links" id="nav-links">
         <a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a>
-        <a href="videography.html" style="text-decoration: underline" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
+        <a href="#videography" style="text-decoration: underline" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
         <a href="booking.html" data-en="Booking" data-jp="予約">Booking</a>
         <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a>
-        <a href="#testimonials" data-en="Testimonials" data-jp="レビュー">Testimonials</a>
+        <a href="testimonials.html" data-en="Testimonials" data-jp="レビュー">Testimonials</a>
       </div>
       <!-- Language Toggle -->
       <div id="languageToggle" class="toggle-container">
@@ -73,46 +73,271 @@
       </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="categories">
-      <div class="container">
-        <div class="category-filters">
-          <button class="category-btn active" data-category="all" data-en="All Work" data-jp="全ての作品">All Work</button>
-          <button class="category-btn" data-category="short-movies" data-en="Short Movies" data-jp="ショートムービー">Short Movies</button>
-          <button class="category-btn" data-category="portrait" data-en="Portrait" data-jp="ポートレート">Portrait</button>
-          <button class="category-btn" data-category="events" data-en="Events" data-jp="イベント">Events</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects -->
-    <section class="featured-projects">
+    <!-- Video Projects -->
+    <section class="video-projects">
       <div class="container">
         <h2 class="section-title" data-en="Featured Projects" data-jp="注目作品">Featured Projects</h2>
-        <div class="project-grid">
-          <!-- Project 1 -->
-          <div class="project-card" data-category="commercial">
-            <div class="project-thumbnail">
-              <img src="https://cdn.glitch.global/20bdc62f-27d7-4e60-a6aa-ee3328bf06ae/1?v=1745649293174" alt="Commercial Project" />
-              <div class="project-overlay">
-                <h3>Tokyo Nights</h3>
-                <p>Commercial Film</p>
-                <button class="play-btn" data-video-id="dQw4w9WgXcQ">Watch Film</button>
-              </div>
+        <div class="project-list">
+          <!-- Project 1 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16" alt="Tokyo Nights" />
+            </div>
+            <div class="project-content">
+              <h3>Tokyo Nights</h3>
+              <p class="project-category">Urban Documentary</p>
+              <p class="project-description">A mesmerizing journey through Tokyo's neon-lit streets, capturing the city's vibrant nightlife and the stories of those who come alive after dark.</p>
+              <button class="play-btn" data-video-id="dQw4w9WgXcQ">Watch Film</button>
             </div>
           </div>
-          <!-- Project 2 -->
-          <div class="project-card" data-category="documentary">
-            <div class="project-thumbnail">
-              <img src="https://cdn.glitch.global/20bdc62f-27d7-4e60-a6aa-ee3328bf06ae/1?v=1745649293174" alt="Documentary Project" />
-              <div class="project-overlay">
-                <h3>Street Culture</h3>
-                <p>Documentary</p>
-                <button class="play-btn" data-video-id="C0DPdy98e4c">Watch Film</button>
-              </div>
+
+          <!-- Project 2 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e" alt="Street Culture" />
+            </div>
+            <div class="project-content">
+              <h3>Street Culture</h3>
+              <p class="project-category">Documentary</p>
+              <p class="project-description">Exploring the dynamic street culture of Tokyo, from street art to fashion, music, and the people who shape the city's urban identity.</p>
+              <button class="play-btn" data-video-id="C0DPdy98e4c">Watch Film</button>
             </div>
           </div>
-          <!-- Add more project cards as needed -->
+
+          <!-- Project 3 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951" alt="Sakura Season" />
+            </div>
+            <div class="project-content">
+              <h3>Sakura Season</h3>
+              <p class="project-category">Nature Documentary</p>
+              <p class="project-description">A poetic visual journey through Japan's cherry blossom season, capturing the ephemeral beauty of sakura and its cultural significance.</p>
+              <button class="play-btn" data-video-id="xyz123">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 4 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186" alt="Traditional Arts" />
+            </div>
+            <div class="project-content">
+              <h3>Traditional Arts</h3>
+              <p class="project-category">Cultural Documentary</p>
+              <p class="project-description">An intimate look at Japan's traditional arts and crafts, featuring master artisans and their dedication to preserving cultural heritage.</p>
+              <button class="play-btn" data-video-id="abc456">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 5 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26" alt="Urban Rhythms" />
+            </div>
+            <div class="project-content">
+              <h3>Urban Rhythms</h3>
+              <p class="project-category">City Life</p>
+              <p class="project-description">A day in the life of Tokyo's bustling streets, capturing the city's unique rhythm and the harmony of millions of lives intersecting.</p>
+              <button class="play-btn" data-video-id="def789">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 6 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4" alt="Music in Motion" />
+            </div>
+            <div class="project-content">
+              <h3>Music in Motion</h3>
+              <p class="project-category">Music Video</p>
+              <p class="project-description">A dynamic collaboration with local musicians, blending traditional Japanese instruments with modern visual storytelling to create an immersive audiovisual experience.</p>
+              <button class="play-btn" data-video-id="ghi789">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 7 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580" alt="Food Stories" />
+            </div>
+            <div class="project-content">
+              <h3>Food Stories</h3>
+              <p class="project-category">Culinary Documentary</p>
+              <p class="project-description">Journey through Tokyo's vibrant food scene, from street vendors to Michelin-starred restaurants, showcasing the artistry and passion behind Japanese cuisine.</p>
+              <button class="play-btn" data-video-id="jkl012">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 8 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Fashion Forward" />
+            </div>
+            <div class="project-content">
+              <h3>Fashion Forward</h3>
+              <p class="project-category">Fashion Film</p>
+              <p class="project-description">A cinematic exploration of Tokyo's avant-garde fashion scene, featuring emerging designers and their innovative collections in stunning urban locations.</p>
+              <button class="play-btn" data-video-id="mno345">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 9 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211" alt="Urban Athletes" />
+            </div>
+            <div class="project-content">
+              <h3>Urban Athletes</h3>
+              <p class="project-category">Sports Documentary</p>
+              <p class="project-description">Following Tokyo's parkour athletes as they transform the urban landscape into their playground, showcasing the intersection of sport, art, and architecture.</p>
+              <button class="play-btn" data-video-id="pqr678">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 10 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3" alt="Festival Lights" />
+            </div>
+            <div class="project-content">
+              <h3>Festival Lights</h3>
+              <p class="project-category">Cultural Event</p>
+              <p class="project-description">Capturing the magic and energy of Japanese festivals, from traditional matsuri to modern celebrations, highlighting the spirit of community and tradition.</p>
+              <button class="play-btn" data-video-id="stu901">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 11 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f" alt="Aerial Tokyo" />
+            </div>
+            <div class="project-content">
+              <h3>Aerial Tokyo</h3>
+              <p class="project-category">Drone Cinematography</p>
+              <p class="project-description">A breathtaking aerial perspective of Tokyo's urban landscape, showcasing the city's architectural marvels and hidden patterns from above.</p>
+              <button class="play-btn" data-video-id="drone123">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 12 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1551972873-b7e8754e8e26" alt="Liquid Motion" />
+            </div>
+            <div class="project-content">
+              <h3>Liquid Motion</h3>
+              <p class="project-category">Slow Motion Art</p>
+              <p class="project-description">An artistic exploration of fluid dynamics captured in stunning slow motion, revealing the hidden beauty in everyday movements.</p>
+              <button class="play-btn" data-video-id="slow456">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 13 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1470219556762-1771e7f9427d" alt="Urban Evolution" />
+            </div>
+            <div class="project-content">
+              <h3>Urban Evolution</h3>
+              <p class="project-category">Timelapse</p>
+              <p class="project-description">A stunning timelapse journey showing Tokyo's transformation from dawn to dusk, capturing the city's dynamic energy and constant motion.</p>
+              <button class="play-btn" data-video-id="time789">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 14 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728" alt="Artisan's Journey" />
+            </div>
+            <div class="project-content">
+              <h3>Artisan's Journey</h3>
+              <p class="project-category">Behind-the-Scenes</p>
+              <p class="project-description">An intimate look into the workshops of Tokyo's master craftsmen, documenting their dedication to preserving traditional Japanese arts.</p>
+              <button class="play-btn" data-video-id="bts012">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 15 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81" alt="Light Paintings" />
+            </div>
+            <div class="project-content">
+              <h3>Light Paintings</h3>
+              <p class="project-category">Experimental Film</p>
+              <p class="project-description">An experimental film combining long exposure photography with motion, creating mesmerizing light trails in Tokyo's nocturnal landscape.</p>
+              <button class="play-btn" data-video-id="exp345">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 16 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1519683109079-d5f539e1542f" alt="Seasonal Transitions" />
+            </div>
+            <div class="project-content">
+              <h3>Seasonal Transitions</h3>
+              <p class="project-category">Nature Documentary</p>
+              <p class="project-description">A year-long documentation of Tokyo's changing seasons, from spring cherry blossoms to winter snow, capturing nature's cycle in the urban environment.</p>
+              <button class="play-btn" data-video-id="season678">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 17 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec" alt="Dance of Light" />
+            </div>
+            <div class="project-content">
+              <h3>Dance of Light</h3>
+              <p class="project-category">Performance Art</p>
+              <p class="project-description">A collaboration with contemporary dancers, using innovative lighting techniques to create a mesmerizing fusion of movement and illumination.</p>
+              <button class="play-btn" data-video-id="dance901">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 18 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4" alt="Sound Waves" />
+            </div>
+            <div class="project-content">
+              <h3>Sound Waves</h3>
+              <p class="project-category">Music Documentary</p>
+              <p class="project-description">Exploring Tokyo's diverse music scene, from traditional instruments to electronic music, visualizing the relationship between sound and imagery.</p>
+              <button class="play-btn" data-video-id="music234">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 19 - Left aligned -->
+          <div class="project-item left">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3" alt="Urban Dreamscape" />
+            </div>
+            <div class="project-content">
+              <h3>Urban Dreamscape</h3>
+              <p class="project-category">Abstract Film</p>
+              <p class="project-description">A surreal journey through Tokyo's architecture and spaces, using creative editing and effects to transform familiar scenes into dreamlike sequences.</p>
+              <button class="play-btn" data-video-id="dream567">Watch Film</button>
+            </div>
+          </div>
+
+          <!-- Project 20 - Right aligned -->
+          <div class="project-item right">
+            <div class="project-video">
+              <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Tech Pioneers" />
+            </div>
+            <div class="project-content">
+              <h3>Tech Pioneers</h3>
+              <p class="project-category">Technology Documentary</p>
+              <p class="project-description">Documenting Japan's innovative technology sector, featuring interviews with industry leaders and showcasing cutting-edge developments shaping our future.</p>
+              <button class="play-btn" data-video-id="tech890">Watch Film</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -136,30 +361,29 @@
         ></path>
       </svg>
     </div>
-
-  <!-- Footer -->
+ <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section about">
-        <h3 data-en="About Me" data-jp="私について">About Me</h3>
-        <p style="font-family: 'futura-pt', sans-serif" data-en="I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!" data-jp="東京を拠点に活動するフォトグラファー兼ビデオグラファー、Taylan Topuzです。ポートフォリオもぜひご覧ください。コラボレーションのご相談もお気軽にどうぞ！">
+        <h3>About Me</h3>
+        <p style="font-family: 'futura-pt', sans-serif">
           I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
         </p>
       </div>
 
       <div class="footer-section links">
-        <h3 data-en="Quick Links" data-jp="クイックリンク">Quick Links</h3>
+        <h3>Quick Links</h3>
         <ul>
-          <li><a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a></li>
-          <li><a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a></li>
-          <li><a href="booking.html" data-en="Booking" data-jp="予約">Booking</a></li>
-          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a></li>
-          <li><a href="testimonials.html" data-en="Testimonials" data-jp="レビュー">Testimonials</a></li>
+          <li><a href="photo.html">Photography</a></li>
+          <li><a href="videography.html">Videography</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
         </ul>
       </div>
 
       <div class="footer-section contact">
-        <h3 data-en="Contact" data-jp="お問い合わせ">Contact</h3>
+        <h3>Contact</h3>
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
           <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
@@ -170,9 +394,9 @@
 
     <div class="footer-bottom">
       <p style="font-family: 'futura-pt', sans-serif">
-        &copy; 2025 Taylan Topuz. <span data-en="All rights reserved." data-jp="無断転載・複製を禁じます">All rights reserved.</span>
+        &copy; 2025 Taylan Topuz. <span>All rights reserved.</span>
       </p>
-      <a href="#" class="back-to-top" data-en="Back to Top" data-jp="トップに戻る">Back to Top</a>
+      <a href="#" class="back-to-top">Back to Top</a>
     </div>
   </footer>
 
@@ -189,27 +413,24 @@
           hamburger.classList.toggle('open');
         });
 
-        // Category filtering
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+        // Scroll animation for project items
+        const projectItems = document.querySelectorAll('.project-item');
+        const observerOptions = {
+          threshold: 0.2,
+          rootMargin: '0px 0px -100px 0px'
+        };
 
-        categoryBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            const category = btn.getAttribute('data-category');
-            
-            projectCards.forEach(card => {
-              if (category === 'all' || card.getAttribute('data-category') === category) {
-                card.style.display = 'block';
-              } else {
-                card.style.display = 'none';
-              }
-            });
+        const projectObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              projectObserver.unobserve(entry.target);
+            }
           });
+        }, observerOptions);
+
+        projectItems.forEach(item => {
+          projectObserver.observe(item);
         });
 
         // Video modal functionality
