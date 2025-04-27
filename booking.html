@@ -44,88 +44,213 @@
     />
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo">
-    </a>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="nav-links" id="nav-links">
-      <a href="photo.html" id="navPhotography">Photography</a>
-      <a href="videography.html" id="navVideography">Videography</a>
-      <a href="#booking" id="navBooking" style="text-decoration: underline;">Booking</a>
-      <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" id="navInstagram">Instagram</a>
-      <a href="testimonials.html" id="navTestimonials">Testimonials</a>
-    </div>
-        <div id="languageToggle" class="toggle-container" onclick="toggleLanguage(this)">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img
+          src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219"
+          alt="Logo"
+        />
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#photo" data-en="Photography" data-jp="写真撮影">Photography</a>
+        <a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
+        <a href="booking.html" style="text-decoration: underline" data-en="Booking" data-jp="予約">Booking</a>
+        <a
+          href="https://www.instagram.com/tay.camera"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-en="Instagram"
+          data-jp="インスタグラム"
+          >Instagram</a
+        >
+        <a href="testimonials.html" data-en="Testimonials" data-jp="レビュー">Testimonials</a>
+      </div>
+
+      <!-- Language Toggle -->
+      <div id="languageToggle" class="toggle-container">
         <span class="toggle-label en-label">EN</span>
         <div class="toggle-ball"></div>
         <span class="toggle-label jp-label">JP</span>
-    </div>
-  </nav>
+      </div>
+    </nav>
   <style>
     .nav-links a {
       font-family: 'Baloo 2', 'Noto Sans JP', sans-serif; 
     }
+    body {
+      font-weight: 500;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+    p {
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .stat-number {
+      font-weight: 700;
+    }
+    .stat-label {
+      font-weight: 500;
+    }
+    .service-card h3 {
+      font-weight: 700;
+    }
+    .service-card p {
+      font-weight: 500;
+    }
+    .booking-form label {
+      font-weight: 600;
+    }
+    .booking-btn {
+      font-weight: 600;
+    }
   </style>
 
-  <!-- Booking Section -->
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 id="bookSessionTitle" data-en="Capture Your Story" data-jp="あなたのストーリーをカタチに">Capture Your Story</h1>
+      <p id="bookSessionDescription" data-en="Professional photography and videography services that bring your vision to life" data-jp="あなたのビジョンを叶える、プロフェッショナルな写真・映像サービス">Professional photography and videography services that bring your vision to life</p>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-number">100+</span>
+        <span class="stat-label" data-en="Projects Completed" data-jp="完了したプロジェクト">Projects Completed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label" data-en="Happy Clients" data-jp="満足いただいたお客様">Happy Clients</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4.8★</span>
+        <span class="stat-label" data-en="Average Rating" data-jp="平均評価">Average Rating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <h2 id="availableServicesTitle" data-en="Professional Services" data-jp="プロフェッショナルサービス">Professional Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="service-icon">📸</i>
+        <h3 data-en="Photowalk and Shoot" data-jp="フォトウォーク撮影">Photowalk and Shoot</h3>
+        <p data-en="Immersive photography experiences capturing the essence of Tokyo's vibrant streets and hidden gems" data-jp="東京の活気ある街並みと隠れた名所の本質を捉える没入型の撮影体験">Immersive photography experiences capturing the essence of Tokyo's vibrant streets and hidden gems</p>
+      </div>
+      <div class="service-card">
+        <i class="service-icon">🎥</i>
+        <h3 data-en="Custom Projects" data-jp="カスタムプロジェクト">Custom Projects</h3>
+        <p data-en="Tailored creative solutions designed specifically for your unique vision and needs" data-jp="あなたのユニークなビジョンとニーズに合わせた創造的なソリューション">Tailored creative solutions designed specifically for your unique vision and needs</p>
+      </div>
+      <div class="service-card">
+        <i class="service-icon">💼</i>
+        <h3 data-en="Video Projects" data-jp="ビデオプロジェクト">Video Projects</h3>
+        <p data-en="From music videos to cinematic storytelling, bringing your creative vision to life" data-jp="ミュージックビデオから映画的なストーリーテリングまで、あなたの創造的なビジョンを実現">From music videos to cinematic storytelling, bringing your creative vision to life</p>
+      </div>
+      <div class="service-card">
+        <i class="service-icon">👤</i>
+        <h3 data-en="Portrait Sessions" data-jp="ポートレートセッション">Portrait Sessions</h3>
+        <p data-en="Capturing your authentic self through artistic and professional portraiture" data-jp="芸術的でプロフェッショナルなポートレート撮影であなたの本質を捉える">Capturing your authentic self through artistic and professional portraiture</p>
+      </div>
+    </div>
+    <div class="services-description">
+      <p data-en="With experience across various creative domains, I'm committed to going the extra mile to transform your imaginative concepts into reality. As a multilingual professional fluent in Turkish, English, and Japanese, I ensure clear communication and understanding throughout our collaboration." data-jp="様々なクリエイティブ分野での経験を活かし、あなたの想像的なコンセプトを実現するために全力を尽くします。トルコ語、英語、日本語に堪能なマルチリンガルプロフェッショナルとして、コラボレーション全体を通じて明確なコミュニケーションと理解を確保します。">With experience across various creative domains, I'm committed to going the extra mile to transform your imaginative concepts into reality. As a multilingual professional fluent in Turkish, English, and Japanese, I ensure clear communication and understanding throughout our collaboration.</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Me Section -->
+  <section class="why-choose-me-section">
+    <h2>Why My Clients Choose Me</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>"Taylan's ability to understand and execute our vision was exceptional. His multilingual skills made the entire process smooth and comfortable."</p>
+          <h4>- Sarah Chen, Business Owner</h4>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>"Working with Taylan was incredible. His creative approach and attention to detail brought our music video concept to life in ways we hadn't imagined."</p>
+          <h4>- Kenji Yamamoto, Music Artist</h4>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>"The photowalk experience with Taylan was amazing. He knows all the perfect spots and really helps you capture the true essence of Tokyo."</p>
+          <h4>- Emma Thompson, Travel Enthusiast</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Response Message -->
+  <section class="quick-response-section">
+    <div class="quick-response-content">
+      <div class="quick-response-box">
+        <i class="quick-icon">⚡</i>
+        <h3 data-en="Need a Quick Response?" data-jp="早急な対応が必要ですか？">Need a Quick Response?</h3>
+        <p data-en="For immediate assistance, reach out through Instagram DM! I'm very active there and typically respond within minutes." data-jp="すぐのお問い合わせはInstagramのDMからどうぞ！頻繁にチェックしており、通常数分以内に返信いたします。">For immediate assistance, reach out through Instagram DM! I'm very active there and typically respond within minutes.</p>
+        <a href="https://www.instagram.com/tay.camera" class="instagram-link" target="_blank" rel="noopener noreferrer">
+          <i class="instagram-icon">📱</i> Message me on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form Section -->
   <section class="booking-section">
     <div class="booking-content">
-        <h2 id="bookSessionTitle">Book Your Session</h2>
-        <p id="bookSessionDescription">Capture life's special moments with professional photography and videography services tailored to your needs. From weddings to corporate events, I'm here to help you tell your story.</p>
-    </div>
+      <h2 id="howItWorksTitle" data-en="Book Your Session" data-jp="セッションを予約">Book Your Session</h2>
+      <p id="howItWorksDescription" data-en="Fill out the form below and I'll get back to you within 24 hours with a personalized quote." data-jp="下記フォームにご記入ください。24時間以内にパーソナライズされたお見積もりをご案内いたします。">Fill out the form below and I'll get back to you within 24 hours with a personalized quote.</p>
+      
+      <form action="https://formspree.io/f/xeojnbye" method="POST" class="modern-form">
+        <div class="form-grid">
+          <div class="booking-form">
+            <label for="name" id="nameLabel" data-en="Your Name" data-jp="お名前">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+          </div>
 
-    <div class="booking-content">
-        <h2 id="howItWorksTitle">How It Works</h2>
-        <p id="howItWorksDescription">Fill out the form below to request a quote or inquire about your event. I'll get back to you within 24 hours to discuss your project in detail and provide you with a personalized quote.</p>
-        <div class="services">
-            <h2 id="availableServicesTitle">Available Services:</h2>
-            <li id="eventPhotography">Event Photography</li>
-            <li id="weddingVideography">Wedding Videography</li>
-            <li id="corporateVideos">Corporate Videos</li>
-            <li id="portraitSessions">Portrait Sessions</li>
-            <li id="customProjects">Custom Projects</li>
+          <div class="booking-form">
+            <label for="email" id="emailLabel" data-en="Email Address" data-jp="メールアドレス">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+          </div>
+
+          <div class="booking-form">
+            <label for="phone" id="phoneLabel" data-en="Phone Number" data-jp="電話番号">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+          </div>
+
+          <div class="booking-form">
+            <label for="service" id="serviceLabel" data-en="Service Type" data-jp="サービスタイプ">Service Type</label>
+            <select id="service" name="service">
+              <option value="photography" id="optionPhotography" data-en="Photography" data-jp="写真撮影">Photography</option>
+              <option value="videography" id="optionVideography" data-en="Videography" data-jp="ビデオ撮影">Videography</option>
+              <option value="both" id="optionBoth" data-en="Both" data-jp="両方">Both</option>
+              <option value="custom" id="optionCustom" data-en="Custom Project" data-jp="カスタムプロジェクト">Custom Project</option>
+            </select>
+          </div>
         </div>
-        <form action="https://formspree.io/f/xeojnbye" method="POST">
-            <div class="booking-form">
-                <label for="name" id="nameLabel">Your Name:</label><br>
-                <input type="text" id="name" name="name" required>
-            </div>
 
-            <div class="booking-form">
-                <label for="email" id="emailLabel">Email Address:</label><br>
-                <input type="email" id="email" name="email" required>
-            </div>
+        <div class="booking-form full-width">
+          <label for="details" id="detailsLabel" data-en="Event Details" data-jp="イベント詳細">Event Details</label>
+          <textarea id="details" name="details" rows="4" placeholder="Please include date, location, and any specific requirements" required></textarea>
+        </div>
 
-            <div class="booking-form">
-                <label for="phone" id="phoneLabel">Phone Number:</label><br>
-                <input type="tel" id="phone" name="phone">
-            </div>
-
-            <div class="booking-form">
-                <label for="service" id="serviceLabel">Service Interested In:</label><br>
-                <select id="service" name="service">
-                    <option value="photography" id="optionPhotography">Photography</option>
-                    <option value="videography" id="optionVideography">Videography</option>
-                    <option value="both" id="optionBoth">Both</option>
-                    <option value="custom" id="optionCustom">Custom Project</option>
-                </select>
-            </div>
-
-            <div class="booking-form">
-                <label for="details" id="detailsLabel">Event Details:</label><br>
-          <textarea id="details" name="details" rows="3" placeholder="Please include date, location, and any specific requirements." required></textarea>
-            </div>
-
-            <div class="booking-form">
-                <button type="submit" class="booking-btn" id="requestQuoteButton">Request a Quote</button>
-            </div>
-        </form>
+        <div class="booking-form">
+          <button type="submit" class="booking-btn" id="requestQuoteButton" data-en="Request a Quote" data-jp="お見積もり依頼">Request a Quote</button>
+        </div>
+      </form>
     </div>
   </section>
   
@@ -139,179 +264,72 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-     <!-- About Section -->
       <div class="footer-section about">
-        <h3>About Me</h3>
-<p style="font-family: 'futura-pt', sans-serif;">
-  I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
-</p>
+        <h3 data-en="About Me" data-jp="私について">About Me</h3>
+        <p style="font-family: 'futura-pt', sans-serif" data-en="I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!" data-jp="東京を拠点に活動するフォトグラファー兼ビデオグラファー、Taylan Topuzです。ポートフォリオもぜひご覧ください。コラボレーションのご相談もお気軽にどうぞ！">
+          I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+        </p>
       </div>
 
       <div class="footer-section links">
-        <h3>Quick Links</h3>
+        <h3 data-en="Quick Links" data-jp="クイックリンク">Quick Links</h3>
         <ul>
-          <li><a href="photo.html">Photography</a></li>
-          <li><a href="videography.html">Videography</a></li>
-          <li><a href="#booking">Booking</a></li>
-          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a></li>
+          <li><a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a></li>
+          <li><a href="booking.html" data-en="Booking" data-jp="予約">Booking</a></li>
+          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a></li>
+          <li><a href="testimonials.html" data-en="Testimonials" data-jp="レビュー">Testimonials</a></li>
         </ul>
       </div>
 
       <div class="footer-section contact">
-        <h3>Contact</h3>
+        <h3 data-en="Contact" data-jp="お問い合わせ">Contact</h3>
         <div class="social-icons">
-          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn"></a>
-          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram"></a>
-          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail.png?v=1724269289815" alt="Email"></a>
+          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
+          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
+          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-<p style="font-family: 'futura-pt', sans-serif;">
-  &copy; 2025 Taylan Topuz. All rights reserved.
-</p>      <a href="#" class="back-to-top">Back to Top</a>
+      <p style="font-family: 'futura-pt', sans-serif">
+        &copy; 2025 Taylan Topuz. <span data-en="All rights reserved." data-jp="無断転載・複製を禁じます">All rights reserved.</span>
+      </p>
+      <a href="#" class="back-to-top" data-en="Back to Top" data-jp="トップに戻る">Back to Top</a>
     </div>
   </footer>
 
-  <script>
-    // Add 'scrolled' class to navbar when page is scrolled down
-    window.addEventListener('scroll', function() {
-      var navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+     <script src="toggle.js" defer></script>
+   <script>
+     document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.getElementById("nav-links");
+  const hamburger = document.getElementById("hamburger");
 
-    document.addEventListener('DOMContentLoaded', function() {
-      var navLinks = document.getElementById("nav-links");
-      var hamburger = document.getElementById("hamburger");
+  // Toggle menu on hamburger click
+  hamburger.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+    hamburger.classList.toggle("open");
+  });
 
-      hamburger.addEventListener("click", function() {
-        navLinks.classList.toggle("open");
-        hamburger.classList.toggle("open");
-        document.body.classList.toggle("no-scroll");
-      });
-    });
-    
-   // Language selector
-    document.addEventListener('DOMContentLoaded', function() {
-      const textContent = {
-        en: {
-          first: "First paragraph text in English",
-          second: "Second paragraph text in English",
-          photography: "Photography",
-          videography: "Videography",
-          booking: "Booking",
-          instagram: "instagram",
-          testimonials: "testimonials",
-          categoryText: "Choose a category below to see examples of my work",
-          bookSessionTitle: "Book Your Session",
-          bookSessionDescription: "Capture life's special moments with professional photography and videography services tailored to your needs. From weddings to corporate events, I'm here to help you tell your story.",
-          howItWorksTitle: "How It Works",
-          howItWorksDescription: "Fill out the form below to request a quote or inquire about your event. I'll get back to you within 24 hours to discuss your project in detail and provide you with a personalized quote.",
-          availableServicesTitle: "Available Services:",
-          eventPhotography: "Event Photography",
-          weddingVideography: "Wedding Videography",
-          corporateVideos: "Corporate Videos",
-          portraitSessions: "Portrait Sessions",
-          customProjects: "Custom Projects",
-          nameLabel: "Your Name:",
-          emailLabel: "Email Address:",
-          phoneLabel: "Phone Number:",
-          serviceLabel: "Service Interested In:",
-          optionPhotography: "Photography",
-          optionVideography: "Videography",
-          optionBoth: "Both",
-          optionCustom: "Custom Project",
-          detailsLabel: "Event Details:",
-          requestQuoteButton: "Request a Quote",
-          placeholderText: "Please include date, location, and any specific requirements."
-
-        },
-        jp: {
-          first: "最初の段落のテキスト（日本語）",
-          second: "2番目の段落のテキスト（日本語）",
-          photography: "写真",
-          videography: "ビデオ",
-          booking: "予約",
-          instagram: "インスタグラム",
-          testimonials: "レビュー",
-          categoryText: "以下のカテゴリを選択して、私の作品の例を見てください",
-          bookSessionTitle: "セッションを予約する",
-          bookSessionDescription: "あなたのニーズに合わせたプロの写真撮影とビデオ撮影サービスで人生の特別な瞬間をキャプチャします。結婚式から企業イベントまで、あなたのストーリーを伝えるお手伝いをします。",
-          howItWorksTitle: "仕組み",
-          howItWorksDescription: "以下のフォームに記入して、見積もりを依頼するか、イベントについてお問い合わせください。24時間以内にプロジェクトの詳細を話し合い、個別の見積もりを提供します。",
-          availableServicesTitle: "利用可能なサービス:",
-          eventPhotography: "イベント写真撮影",
-          weddingVideography: "結婚式のビデオ撮影",
-          corporateVideos: "企業ビデオ",
-          portraitSessions: "ポートレートセッション",
-          customProjects: "カスタムプロジェクト",
-          nameLabel: "あなたの名前:",
-          emailLabel: "メールアドレス:",
-          phoneLabel: "電話番号:",
-          serviceLabel: "興味のあるサービス:",
-          optionPhotography: "写真撮影",
-          optionVideography: "ビデオ撮影",
-          optionBoth: "両方",
-          optionCustom: "カスタムプロジェクト",
-          detailsLabel: "イベントの詳細:",
-          requestQuoteButton: "見積もりを依頼する",
-          placeholderText: "日付、場所、および特定の要件を含めてください。"
-
-        }
-      };
-
-      function updateTextContent(language) {
-        console.log(`Updating text content to ${language}`);
-        document.getElementById('bookSessionTitle').textContent = textContent[language].bookSessionTitle;
-        document.getElementById('bookSessionDescription').textContent = textContent[language].bookSessionDescription;
-        document.getElementById('howItWorksTitle').textContent = textContent[language].howItWorksTitle;
-        document.getElementById('howItWorksDescription').textContent = textContent[language].howItWorksDescription;
-        document.getElementById('availableServicesTitle').textContent = textContent[language].availableServicesTitle;
-        document.getElementById('eventPhotography').textContent = textContent[language].eventPhotography;
-        document.getElementById('weddingVideography').textContent = textContent[language].weddingVideography;
-        document.getElementById('corporateVideos').textContent = textContent[language].corporateVideos;
-        document.getElementById('portraitSessions').textContent = textContent[language].portraitSessions;
-        document.getElementById('customProjects').textContent = textContent[language].customProjects;
-        document.getElementById('nameLabel').textContent = textContent[language].nameLabel;
-        document.getElementById('emailLabel').textContent = textContent[language].emailLabel;
-        document.getElementById('phoneLabel').textContent = textContent[language].phoneLabel;
-        document.getElementById('serviceLabel').textContent = textContent[language].serviceLabel;
-        document.getElementById('optionPhotography').textContent = textContent[language].optionPhotography;
-        document.getElementById('optionVideography').textContent = textContent[language].optionVideography;
-        document.getElementById('optionBoth').textContent = textContent[language].optionBoth;
-        document.getElementById('optionCustom').textContent = textContent[language].optionCustom;
-        document.getElementById('detailsLabel').textContent = textContent[language].detailsLabel;
-        document.getElementById('requestQuoteButton').textContent = textContent[language].requestQuoteButton;
-        document.getElementById('details').placeholder = textContent[language].placeholderText;
-        document.getElementById('navPhotography').textContent = textContent[language].photography;
-        document.getElementById('navVideography').textContent = textContent[language].videography;
-        document.getElementById('navBooking').textContent = textContent[language].booking;
-        document.getElementById('navInstagram').textContent = textContent[language].instagram;
-        document.getElementById('Testimonials').textContent = textContent[language].testimonials;
-      }
-
-      // Initial text content
-      updateTextContent('en');
-
-      // Event listener for language toggle
-      document.getElementById('languageToggle').addEventListener('click', function() {
-        const currentLanguage = document.getElementById('languageToggle').classList.contains('jp') ? 'jp' : 'en';
-        const newLanguage = currentLanguage === 'en' ? 'jp' : 'en';
-        document.getElementById('languageToggle').classList.toggle('jp');
-        document.getElementById('languageToggle').classList.toggle('en');
-        updateTextContent(newLanguage);
-      });
-    });
-
-    function toggleLanguage(toggle) {
-      toggle.classList.toggle('active');
+  // Reset menu state on window resize
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 800) {
+      navLinks.classList.remove("open");
+      hamburger.classList.remove("open");
     }
-  </script>
-</body>
+  });
+             // Add 'scrolled' class to navbar when page is scrolled down
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+});
+    </script>
+    <script src="include-language-toggle.js" defer></script>
+  </body>
 </html>
