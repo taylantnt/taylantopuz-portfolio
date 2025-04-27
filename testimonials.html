@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Client testimonials and reviews for Taylan Topuz - Professional Photographer and Videographer based in Tokyo." />
-    <meta name="keywords" content="Photography Reviews, Videography Reviews, Client Testimonials, Tokyo, Taylan Topuz" />
-    <meta name="author" content="Taylan Topuz" />
-    <title>Client Testimonials - Taylan Topuz</title>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials Test Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/apple-touch-icon.png?v=1725390980958" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -32,55 +30,22 @@
     <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="toggle.css" />
-
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: #1a1a1a;
-      color: #fff;
       line-height: 1.6;
+      margin: 0;
+      padding: 20px;
     }
 
-    .review-form-container {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-    }
-
-    .review-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 12px;
-      backdrop-filter: blur(10px);
-    }
-
-    .review-form input,
-    .review-form textarea {
-      padding: 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-family: inherit;
-    }
-
-    .review-form button {
-      padding: 0.75rem;
-      background: #de8435;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      font-family: inherit;
-      font-weight: 600;
-    }
-
-    .review-form button:hover {
-      background: #c67329;
+    .page-title {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 2.5rem;
+      margin-top: 80px;
+      font-weight: 700;
+      color: #de8435;
     }
 
     .testimonials-grid {
@@ -93,25 +58,25 @@
     }
 
     .testimonial-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       border-radius: 12px;
       padding: 1.5rem;
       text-align: center;
       backdrop-filter: blur(10px);
-      transition: transform 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s;
     }
 
     .testimonial-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(222, 132, 53, 0.5);
+      border-color: rgba(222,132,53,0.5);
     }
 
     .testimonial-image {
       width: 100px;
       height: 100px;
-      border-radius: 50%;
       margin: 0 auto 1rem;
+      border-radius: 50%;
       overflow: hidden;
       border: 3px solid #de8435;
     }
@@ -126,320 +91,201 @@
       font-size: 0.95rem;
       line-height: 1.6;
       margin: 1rem 0;
-      color: #fff;
     }
 
     .testimonial-author {
       font-weight: 600;
       color: #de8435;
       margin-top: 1rem;
-      font-size: 1rem;
     }
 
-    .page-title {
+    .loading-indicator {
       text-align: center;
-      padding: 2rem 0;
+      padding: 2rem;
+      color: #de8435;
+      font-size: 1.2rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    .review-form-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+    }
+
+    .review-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: rgba(255,255,255,0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .review-form input,
+    .review-form textarea {
+      padding: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
       color: #fff;
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-family: inherit;
+    }
+
+    .review-form button {
+      padding: 0.75rem;
+      background: #de8435;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .review-form button:hover {
+      background: #c67329;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .modal-title {
+      color: #de8435;
       margin-bottom: 1rem;
     }
 
-    @media (max-width: 768px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-      }
+    .modal-message {
+      margin-bottom: 1.5rem;
+    }
 
-      .page-title {
-        font-size: 2rem;
-        padding: 1.5rem 0;
-      }
+    .modal-button {
+      padding: 0.75rem 2rem;
+      background: #de8435;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
 
-      .review-form-container {
-        padding: 1rem;
-      }
+    .modal-button:hover {
+      background: #c67329;
     }
   </style>
+      <script src="toggle.js" defer></script>
+   <script>
+     document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.getElementById("nav-links");
+  const hamburger = document.getElementById("hamburger");
 
+  // Toggle menu on hamburger click
+  hamburger.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+    hamburger.classList.toggle("open");
+  });
+
+  // Reset menu state on window resize
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 800) {
+      navLinks.classList.remove("open");
+      hamburger.classList.remove("open");
+    }
+  });
+             // Add 'scrolled' class to navbar when page is scrolled down
+      window.addEventListener("scroll", function () {
+        var navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+});
+    </script>
 </head>
-<body>
- <!-- Navigation Bar -->
- <nav class="navbar">
-    <a href="index.html" class="logo">
-      <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo" />
-    </a>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="nav-links" id="nav-links">
-      <a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a>
-      <a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
-      <a href="booking.html" data-en="Booking" data-jp="予約">Booking</a>
-      <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a>
-      <a href="testimonials.html" data-en="Reviews" data-jp="レビュー">Reviews</a>
-    </div>
-    </nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/watermark%20white.png?v=1724123517219" alt="Logo" />
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="nav-links">
+<a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a>
+<a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
+<a href="booking.html" data-en="Booking" data-jp="予約">Booking</a>
+<a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a>
+<a href="testimonials.html" data-en="Testimonials" data-jp="レビュー">Testimonials</a>
+      </div>
 
-  <h1 class="page-title" data-en="Client Testimonials" data-jp="お客様の声">Client Testimonials</h1>
+      <!-- Language Toggle -->
+      <div id="languageToggle" class="toggle-container">
+        <span class="toggle-label en-label">EN</span>
+        <div class="toggle-ball"></div>
+        <span class="toggle-label jp-label">JP</span>
+      </div>
+    </nav>
+<body>
+  <h1 class="page-title">Client Testimonials</h1>
 
   <!-- Review Submission Form -->
   <div class="review-form-container">
     <form id="testimonialForm" class="review-form">
       <input type="text" id="name" placeholder="Your Name" required>
       <textarea id="message" placeholder="Write your review..." rows="5" required></textarea>
-      <button type="submit" data-en="Submit Review" data-jp="レビューを送信">Submit Review</button>
+      <button type="submit">Submit Review</button>
     </form>
   </div>
 
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6791.webp?v=1725687212774" alt="Eri" />
-      </div>
-      <p class="testimonial-text" data-jp="写真撮影のためにお願いしました。急なお願いにも関わらず、快諾して下さり、とても助かりました！モデルの経験はなく少し緊張していたのですが、TTさんと気さくにお話できたおかげで、気楽に撮影することができました✨また仕事で撮影する機会が来たらぜひお願いしたいです。" data-en="I requested a photo shoot. Despite the sudden request, he gladly accepted and it was very helpful! Although I had no modeling experience and was a bit nervous, thanks to being able to talk casually with TT, I was able to shoot comfortably✨If I have another opportunity to shoot for work, I would definitely like to request him again.">写真撮影のためにお願いしました。急なお願いにも関わらず、快諾して下さり、とても助かりました！モデルの経験はなく少し緊張していたのですが、TTさんと気さくにお話できたおかげで、気楽に撮影することができました✨また仕事で撮影する機会が来たらぜひお願いしたいです。</p>
-      <h3 class="testimonial-author">原口 愛理</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_0311.avif?v=1726108838016" alt="Rai" />
-      </div>
-      <p class="testimonial-text">I do cosplay, and Taylan was able to adapt to the cosplay style of shooting easily! He's super fun to work with and makes you laugh and totally feel comfortable when he shoots. He's so nice and conversation flows easily, so shoots never feel drawn out or boring. His photos are always awesome too, no matter if it's street shooting, studio shooting, or random kawaii cosplay shooting!</p>
-      <h3 class="testimonial-author">Rai</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/2023_08_03_Tasuke_Tomomi_152.jpg?v=1726684116747" alt="Tomomi" />
-      </div>
-      <p class="testimonial-text">He is awesome!! Definitely, You will love it :)</p>
-      <h3 class="testimonial-author">Tamiko</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/2023_08_03_Tasuke_Tomomi_152.jpg?v=1726684116747" alt="Tomomi" />
-      </div>
-      <p class="testimonial-text">Really chill guy.Very smooth with his photo skills. Will ask him again for shoots.</p>
-      <h3 class="testimonial-author">Kevin</h3>
-    </div>
-    
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/2023_08_03_Tasuke_Tomomi_118.jpg?v=1726684033658" alt="Tasuke" />
-      </div>
-      <p class="testimonial-text" data-jp="結婚式の招待状用の写真を撮ってもらいました。ポーズの細かいアドバイスや、tipsを伝えてくれて数時間かけてしっかりと撮ってくれました。編集もしてくれ無事に完成して感謝しかありません！" data-en="I had photos taken for my wedding invitation. He gave me detailed advice on poses and tips, and took time to shoot properly for several hours. He also did the editing, and I'm nothing but grateful that it was completed successfully!">結婚式の招待状用の写真を撮ってもらいました。ポーズの細かいアドバイスや、tipsを伝えてくれて数時間かけてしっかりと撮ってくれました。編集もしてくれ無事に完成して感謝しかありません！</p>
-      <h3 class="testimonial-author">Tasuke</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6771.webp?v=1725685096320" alt="Ertug" />
-      </div>
-      <p class="testimonial-text">I had a chance to do photo shooting more than couple of times with Taylan. Every time he came up with new and interesting ideas, always open to discuss new ideas. He is very chill and easy to work with, that made me feel very comfortable. Planning to do more shooting in the future with this talented guy, I can easily recommend Taylan to everyone, you will have quite experience!!</p>
-      <h3 class="testimonial-author">Ertug</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Chika" />
-      </div>
-      <p class="testimonial-text" data-jp="撮影が初めての体験でしたが、ポージングやアイディアを伝えてくれるので楽しく撮影できました！！新たな自分の表情を発見できてよかったです!" data-en="It was my first time being photographed, but I was able to enjoy the shoot because he gave me posing and ideas!! I'm glad I was able to discover new expressions of myself!">撮影が初めての体験でしたが、ポージングやアイディアを伝えてくれるので楽しく撮影できました！！新たな自分の表情を発見できてよかったです!</p>
-      <h3 class="testimonial-author">Chika</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6822.jpg?v=1726420171940" alt="Lisa" />
-      </div>
-      <p class="testimonial-text">I had a really great experience with Taylan! He knows how to make people feel comfortable.</p>
-      <h3 class="testimonial-author">Lisa</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF8470.jpg?v=1725039579641" alt="Antonio" />
-      </div>
-      <p class="testimonial-text">It is always a pleasure to work with Taylan. His attitude is professional and very friendly at the same time, which makes whoever works with him feel comfortable. Looking forward to shooting with him again!</p>
-      <h3 class="testimonial-author">Antonio</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Ria" />
-      </div>
-      <p class="testimonial-text">Тайлан прекрасный человек и талантливый фотограф, очень добрый и лёгкий в общении, очень внимательный, умеющий достать лучшее из модели и снять действительно красиво и интересно. Он делает много фото в поисках наилучшего угла съёмки, так что потом есть из чего выбрать, и что было особенно интересно, хотя и немного сложно - предлагает определённый сюжет / историю, так что можно почувствовать себя немного актрисой.</p>
-      <h3 class="testimonial-author">リア</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Marie Lea" />
-      </div>
-      <p class="testimonial-text">Taylan is such a talented and fun photographer. It is a pleasure to work with him as he has a joyful personality and never hesitates to propose bold and creative ideas! I highly recommend working with him as he'll help you realize any artistic ideas you may have. You won't be disappointed and you'll have an amazing time. I can't wait to work again with you Tay! Keep up the good work!</p>
-      <h3 class="testimonial-author">Marie Lea</h3>
-    </div>
-        <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_0311.avif?v=1726108838016" alt="Rai" />
-      </div>
-      <p class="testimonial-text">I do cosplay, and Taylan was able to adapt to the cosplay style of shooting easily! He's super fun to work with and makes you laugh and totally feel comfortable when he shoots. He's so nice and conversation flows easily, so shoots never feel drawn out or boring. His photos are always awesome too, no matter if it's street shooting, studio shooting, or random kawaii cosplay shooting!</p>
-      <h3 class="testimonial-author">Rai</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/2023_08_03_Tasuke_Tomomi_152.jpg?v=1726684116747" alt="Tomomi" />
-      </div>
-      <p class="testimonial-text">He is awesome!! Definitely, You will love it :)</p>
-      <h3 class="testimonial-author">Tamiko</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/2023_08_03_Tasuke_Tomomi_118.jpg?v=1726684033658" alt="Tasuke" />
-      </div>
-      <p class="testimonial-text" data-jp="結婚式の招待状用の写真を撮ってもらいました。ポーズの細かいアドバイスや、tipsを伝えてくれて数時間かけてしっかりと撮ってくれました。編集もしてくれ無事に完成して感謝しかありません！" data-en="I had photos taken for my wedding invitation. He gave me detailed advice on poses and tips, and took time to shoot properly for several hours. He also did the editing, and I'm nothing but grateful that it was completed successfully!">結婚式の招待状用の写真を撮ってもらいました。ポーズの細かいアドバイスや、tipsを伝えてくれて数時間かけてしっかりと撮ってくれました。編集もしてくれ無事に完成して感謝しかありません！</p>
-      <h3 class="testimonial-author">Tasuke</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6771.webp?v=1725685096320" alt="Ertug" />
-      </div>
-      <p class="testimonial-text">I had a chance to do photo shooting more than couple of times with Taylan. Every time he came up with new and interesting ideas, always open to discuss new ideas. He is very chill and easy to work with, that made me feel very comfortable. Planning to do more shooting in the future with this talented guy, I can easily recommend Taylan to everyone, you will have quite experience!!</p>
-      <h3 class="testimonial-author">Ertug</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Chika" />
-      </div>
-      <p class="testimonial-text" data-jp="撮影が初めての体験でしたが、ポージングやアイディアを伝えてくれるので楽しく撮影できました！！新たな自分の表情を発見できてよかったです!" data-en="It was my first time being photographed, but I was able to enjoy the shoot because he gave me posing and ideas!! I'm glad I was able to discover new expressions of myself!">撮影が初めての体験でしたが、ポージングやアイディアを伝えてくれるので楽しく撮影できました！！新たな自分の表情を発見できてよかったです!</p>
-      <h3 class="testimonial-author">Chika</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6822.jpg?v=1726420171940" alt="Lisa" />
-      </div>
-      <p class="testimonial-text">I had a really great experience with Taylan! He knows how to make people feel comfortable.</p>
-      <h3 class="testimonial-author">Lisa</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.me/d6da9e36-e150-4a04-8aac-2a224dc24a8d/DSCF8470.jpg?v=1725039579641" alt="Antonio" />
-      </div>
-      <p class="testimonial-text">It is always a pleasure to work with Taylan. His attitude is professional and very friendly at the same time, which makes whoever works with him feel comfortable. Looking forward to shooting with him again!</p>
-      <h3 class="testimonial-author">Antonio</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Ria" />
-      </div>
-      <p class="testimonial-text">Тайлан прекрасный человек и талантливый фотограф, очень добрый и лёгкий в общении, очень внимательный, умеющий достать лучшее из модели и снять действительно красиво и интересно. Он делает много фото в поисках наилучшего угла съёмки, так что потом есть из чего выбрать, и что было особенно интересно, хотя и немного сложно - предлагает определённый сюжет / историю, так что можно почувствовать себя немного актрисой.</p>
-      <h3 class="testimonial-author">リア</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Marie Lea" />
-      </div>
-      <p class="testimonial-text">Taylan is such a talented and fun photographer. It is a pleasure to work with him as he has a joyful personality and never hesitates to propose bold and creative ideas! I highly recommend working with him as he'll help you realize any artistic ideas you may have. You won't be disappointed and you'll have an amazing time. I can't wait to work again with you Tay! Keep up the good work!</p>
-      <h3 class="testimonial-author">Marie Lea</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Nathalia" />
-      </div>
-      <p class="testimonial-text">2回撮影をさせていただこました。優しくてフレンドリーですごくいい方なのでとても楽しかったです！モデルのチャームポイントをとり出してくれるストーリーまで考える天才フォトグラファーさんだと思います。写真と動画のセンスが素晴らしくて、1番いいアングルを探してくれて、素敵な写真が沢山出来ました。ありがとうございます。またぜひよろしくお願いします！</p>
-      <h3 class="testimonial-author">Nathalia</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Lia" />
-      </div>
-      <p class="testimonial-text">Тайлан прекрасный человек и талантливый фотограф, очень добрый и лёгкий в общении, очень внимательный, умеющий «вытащить» лучшее из модели и снять действительно красиво и интересно. Он делает много фотографий в поисках наилучшего угла съёмки, так что потом есть из чего выбрать, и даже предлагает отыграть определённый сюжет / историю, так что можно почувствовать себя немного актрисой. Надеюсь, мы ещё поснимаем что-нибудь вместе :)</p>
-      <h3 class="testimonial-author">Лия</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/XT302645.jpg?v=1725180097676" alt="Tapioka" />
-      </div>
-      <p class="testimonial-text">とにかく楽しい撮影でした^ ^新しい視点で瞬間を切り取ってくれるカメラマンです。どんな写真を撮りたいかを事前に相談できたし、ポーズのアドバイスも的確で、完成品にとても満足しました。撮りたい写真や動画があるなら、是非彼に頼んでみてください。彼は、本気です。Anyway, it was a fun shoot^ ^He is a photographer who can capture scenes from a perspective that no one can think of. His advice was spot on and I was happy with the finished product. If you want to make a good work, you should ask him.</p>
-      <h3 class="testimonial-author">Tapioka</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6826.jpg?v=1726446541250" alt="Lina" />
-      </div>
-      <p class="testimonial-text">明るくてユーモアがあり、会うと元気になれるようなお人柄です！撮影ではアイデアが豊富で小道具を使ったり、いつも新しいスタイルを提案してくれます。おかげで楽しい撮影になります。また、彼の動画作成のスキルが素晴らしいです。何気ない瞬間を美しくまとめてくれてわくわくするような作品に仕上がり、見るのが楽しみになります。ぜひお会いしてみてください。</p>
-      <h3 class="testimonial-author">Lina</h3>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742" alt="Taylan" />
-      </div>
-      <p class="testimonial-text">Taylan is incontestably an amazing photographer and a wonderful person. I had such a good experience shooting with him ! He will not only propose great ideas but he also listen attentively to your visions and concepts ideas and will make them happen in a beautiful way~ It is a pleasure to work with him and I will continue to do so ! And I highly recommend you to contact him if you haven't already, you won't be disappointed I'm telling you ! 😄 Merci beaucoup Tay, tu es incroyable ! ✨️</p>
-      <h3 class="testimonial-author">Taylan</h3>
+  <!-- Modal for notifications -->
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-message" id="modalMessage"></p>
+      <button class="modal-button" onclick="closeModal()">Close</button>
     </div>
   </div>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-section about">
-            <h3>About Me</h3>
-            <p style="font-family: 'futura-pt', sans-serif">
-              I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
-            </p>
-          </div>
-    
-          <div class="footer-section links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="photo.html">Photography</a></li>
-              <li><a href="videography.html">Videography</a></li>
-              <li><a href="booking.html">Booking</a></li>
-              <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="#reviews">Reviews</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer-section contact">
-            <h3>Contact</h3>
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
-              <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
-              <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
-            </div>
-          </div>
-        </div>
-    
-        <div class="footer-bottom">
-          <p style="font-family: 'futura-pt', sans-serif">
-            &copy; 2025 Taylan Topuz. All rights reserved.
-          </p>
-          <a href="#" class="back-to-top">Back to Top</a>
-        </div>
-      </footer>
 
-  <!-- Firebase SDKs -->
+  <div id="testimonialsGrid" class="testimonials-grid"></div>
+
   <script type="module">
-    // Import Firebase modules
+    // Import Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, query, where, orderBy, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-    // Your Firebase configuration
+    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyAY75psFu07bgor-4HPenw13WZreB478FI",
       authDomain: "taylantopuz-testimonials.firebaseapp.com",
@@ -453,51 +299,135 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const testimonialsGrid = document.getElementById('testimonialsGrid');
 
+    // Load approved testimonials
+    async function loadApprovedTestimonials() {
+      try {
+        testimonialsGrid.innerHTML = '<div class="loading-indicator">Loading testimonials...</div>';
+
+        const q = query(
+          collection(db, 'testimonials'),
+          where('approved', '==', true)
+        );
+        const snapshot = await getDocs(q);
+        
+        if (snapshot.empty) {
+          testimonialsGrid.innerHTML = '<p>No approved testimonials found</p>';
+          return;
+        }
+
+        testimonialsGrid.innerHTML = '';
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          const card = document.createElement('div');
+          card.className = 'testimonial-card';
+          card.innerHTML = `
+            <div class="testimonial-image">
+              <img src="${data.imageUrl || 'https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742'}" alt="${data.name}" />
+            </div>
+            <p class="testimonial-text">${data.message}</p>
+            <h3 class="testimonial-author">${data.name}</h3>
+          `;
+          testimonialsGrid.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Error loading testimonials:', err);
+        testimonialsGrid.innerHTML = `<p>Error loading testimonials: ${err.message}</p>`;
+      }
+    }
+
+    // Handle form submission
     const testimonialForm = document.getElementById('testimonialForm');
-    const testimonialList = document.getElementById('testimonialList');
+    const modal = document.getElementById('notificationModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
 
-    // Submit new testimonial
+    function showModal(title, message) {
+      modalTitle.textContent = title;
+      modalMessage.textContent = message;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    window.closeModal = closeModal;
+
     testimonialForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (name && message) {
-        try {
-          await addDoc(collection(db, "testimonials"), {
-            name: name,
-            message: message,
-            createdAt: new Date()
-          });
-          testimonialForm.reset();
-          loadTestimonials();  // Reload testimonials after submitting
-        } catch (error) {
-          console.error("Error adding testimonial: ", error);
-        }
+      
+      const nameInput = document.getElementById('name');
+      const messageInput = document.getElementById('message');
+      
+      try {
+        await addDoc(collection(db, 'testimonials'), {
+          name: nameInput.value,
+          message: messageInput.value,
+          approved: false,
+          timestamp: new Date().toISOString()
+        });
+        
+        showModal('Success', 'Thank you for your review! It will be visible after approval.');
+        testimonialForm.reset();
+      } catch (err) {
+        console.error('Error submitting review:', err);
+        showModal('Error', 'Failed to submit review. Please try again.');
       }
     });
 
-    // Load and display testimonials
-    async function loadTestimonials() {
-      testimonialList.innerHTML = "";
-      const q = query(collection(db, "testimonials"), orderBy("createdAt", "desc"));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        const testimonial = doc.data();
-        const div = document.createElement('div');
-        div.classList.add('testimonial');
-        div.innerHTML = `
-          <strong>${testimonial.name}</strong>
-          <p>${testimonial.message}</p>
-        `;
-        testimonialList.appendChild(div);
-      });
-    }
-
-    // Load testimonials when page loads
-    loadTestimonials();
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', loadApprovedTestimonials);
   </script>
+      <!-- Wave Below "Book Me for an Event" -->
+    <div class="wave-container wave-bottom">
+      <svg viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="#ADD8E6"
+          fill-opacity="1"
+          d="M0,192L30,181.3C60,171,120,149,180,122.7C240,96,300,64,360,58.7C420,53,480,75,540,101.3C600,128,660,160,720,154.7C780,149,840,107,900,96C960,85,1020,107,1080,128C1140,149,1200,171,1260,186.7C1320,203,1380,213,1410,218.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>About Me</h3>
+        <p style="font-family: 'futura-pt', sans-serif">
+          I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+        </p>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="photo.html">Photography</a></li>
+          <li><a href="videography.html">Videography</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
+          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
+          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p style="font-family: 'futura-pt', sans-serif">
+        &copy; 2025 Taylan Topuz. All rights reserved.
+      </p>
+      <a href="#" class="back-to-top">Back to Top</a>
+    </div>
+  </footer>
 </body>
-  </html>
+</html>
