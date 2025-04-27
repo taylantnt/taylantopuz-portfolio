@@ -50,11 +50,23 @@
 
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       padding: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
+    }
+
+    @media (max-width: 1024px) {
+      .testimonials-grid {z
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .testimonial-card {
