@@ -21,7 +21,7 @@ h2,
 h3 {
   font-family: "futura-pt", sans-serif; /* Font family */
   font-weight: bold; /* Bold font weight */
-  font-size: 2.1em;
+  font-size: 1.4em;
 }
 /* Colors */
 :root {
@@ -139,7 +139,7 @@ h3 {
   color: #fff;
   padding: 10px 20px;
   margin: 10px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
   backdrop-filter: blur(10px) !important; /* Existing line */

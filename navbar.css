@@ -65,7 +65,7 @@ body {
 
 /* Ensure the navbar content is above the pseudo-element */
 .navbar > * {
-  position: relative;
+ /* position: relative;*/
   z-index: 1;
 }
 

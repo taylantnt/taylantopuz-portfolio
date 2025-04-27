@@ -30,10 +30,45 @@
     <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="toggle.css" />
+    <script src="toggle.js" defer></script>
+    <script>
+      // Update language toggle functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const languageToggle = document.getElementById('languageToggle');
+        const pageTitle = document.querySelector('.page-title');
+        const nameInput = document.getElementById('name');
+        const messageInput = document.getElementById('message');
+        const submitButton = document.querySelector('.review-form button[type="submit"]');
+        const footerElements = document.querySelectorAll('[data-en][data-jp]');
+
+        function updateLanguage(isJapanese) {
+          // Update page title
+          pageTitle.textContent = isJapanese ? pageTitle.dataset.jp : pageTitle.dataset.en;
+
+          // Update form placeholders
+          nameInput.placeholder = isJapanese ? nameInput.dataset.jpPlaceholder : nameInput.dataset.enPlaceholder;
+          messageInput.placeholder = isJapanese ? messageInput.dataset.jpPlaceholder : messageInput.dataset.enPlaceholder;
+
+          // Update submit button text
+          submitButton.textContent = isJapanese ? submitButton.dataset.jp : submitButton.dataset.en;
+
+          // Update footer elements
+          footerElements.forEach(element => {
+            element.textContent = isJapanese ? element.dataset.jp : element.dataset.en;
+          });
+        }
+
+        // Add language toggle event listener
+        languageToggle.addEventListener('click', function() {
+          const isJapanese = languageToggle.classList.toggle('jp');
+          updateLanguage(isJapanese);
+        });
+      });
+    </script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #1a1a1a;
+      background: black;
       line-height: 1.6;
       margin: 0;
       padding: 20px;
@@ -58,7 +93,7 @@
     }
 
     @media (max-width: 1024px) {
-      .testimonials-grid {z
+      .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -146,7 +181,7 @@
       padding: 0.75rem;
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 8px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(0, 0, 0, 0.33);
       color: #fff;
       font-family: inherit;
     }
@@ -244,6 +279,7 @@
 });
     </script>
 </head>
+<body>
     <!-- Navigation Bar -->
     <nav class="navbar">
       <a href="index.html" class="logo">
@@ -255,11 +291,11 @@
         <span></span>
       </div>
       <div class="nav-links" id="nav-links">
-<a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a>
-<a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
-<a href="booking.html" data-en="Booking" data-jp="予約">Booking</a>
-<a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a>
-<a href="testimonials.html" data-en="Testimonials" data-jp="レビュー">Testimonials</a>
+        <a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a>
+        <a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a>
+        <a href="booking.html" data-en="Booking" data-jp="予約">Booking</a>
+        <a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a>
+        <a href="#testimonials" data-en="Testimonials" data-jp="レビュー">Testimonials</a>
       </div>
 
       <!-- Language Toggle -->
@@ -269,130 +305,131 @@
         <span class="toggle-label jp-label">JP</span>
       </div>
     </nav>
-<body>
-  <h1 class="page-title">Client Testimonials</h1>
 
-  <!-- Review Submission Form -->
-  <div class="review-form-container">
-    <form id="testimonialForm" class="review-form">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <textarea id="message" placeholder="Write your review..." rows="5" required></textarea>
-      <button type="submit">Submit Review</button>
-    </form>
-  </div>
+    <h1 class="page-title" data-en="Client Testimonials" data-jp="クライアントの声">Client Testimonials</h1>
 
-  <!-- Modal for notifications -->
-  <div id="notificationModal" class="modal">
-    <div class="modal-content">
-      <h2 class="modal-title" id="modalTitle"></h2>
-      <p class="modal-message" id="modalMessage"></p>
-      <button class="modal-button" onclick="closeModal()">Close</button>
+    <!-- Review Submission Form -->
+    <div class="review-form-container">
+      <form id="testimonialForm" class="review-form">
+        <input type="text" id="name" placeholder="Your Name" data-en-placeholder="Your Name" data-jp-placeholder="お名前" required>
+        <textarea id="message" placeholder="Write your review..." data-en-placeholder="Write your review..." data-jp-placeholder="レビューを書いてください..." rows="5" required></textarea>
+        <button type="submit" data-en="Submit Review" data-jp="レビューを送信">Submit Review</button>
+      </form>
     </div>
-  </div>
 
-  <div id="testimonialsGrid" class="testimonials-grid"></div>
+    <!-- Modal for notifications -->
+    <div id="notificationModal" class="modal">
+      <div class="modal-content">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-message" id="modalMessage"></p>
+        <button class="modal-button" onclick="closeModal()">Close</button>
+      </div>
+    </div>
 
-  <script type="module">
-    // Import Firebase
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, query, where, orderBy, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    <div id="testimonialsGrid" class="testimonials-grid"></div>
 
-    // Firebase config
-    const firebaseConfig = {
-      apiKey: "AIzaSyAY75psFu07bgor-4HPenw13WZreB478FI",
-      authDomain: "taylantopuz-testimonials.firebaseapp.com",
-      projectId: "taylantopuz-testimonials",
-      storageBucket: "taylantopuz-testimonials.appspot.com",
-      messagingSenderId: "775195679041",
-      appId: "1:775195679041:web:a661a944a1e0f7975329c0",
-      measurementId: "G-2JM02JRPMW"
-    };
+    <script type="module">
+      // Import Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import { getFirestore, collection, getDocs, query, where, orderBy, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const testimonialsGrid = document.getElementById('testimonialsGrid');
+      // Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyAY75psFu07bgor-4HPenw13WZreB478FI",
+        authDomain: "taylantopuz-testimonials.firebaseapp.com",
+        projectId: "taylantopuz-testimonials",
+        storageBucket: "taylantopuz-testimonials.appspot.com",
+        messagingSenderId: "775195679041",
+        appId: "1:775195679041:web:a661a944a1e0f7975329c0",
+        measurementId: "G-2JM02JRPMW"
+      };
 
-    // Load approved testimonials
-    async function loadApprovedTestimonials() {
-      try {
-        testimonialsGrid.innerHTML = '<div class="loading-indicator">Loading testimonials...</div>';
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const testimonialsGrid = document.getElementById('testimonialsGrid');
 
-        const q = query(
-          collection(db, 'testimonials'),
-          where('approved', '==', true)
-        );
-        const snapshot = await getDocs(q);
-        
-        if (snapshot.empty) {
-          testimonialsGrid.innerHTML = '<p>No approved testimonials found</p>';
-          return;
+      // Load approved testimonials
+      async function loadApprovedTestimonials() {
+        try {
+          testimonialsGrid.innerHTML = '<div class="loading-indicator">Loading testimonials...</div>';
+
+          const q = query(
+            collection(db, 'testimonials'),
+            where('approved', '==', true)
+          );
+          const snapshot = await getDocs(q);
+          
+          if (snapshot.empty) {
+            testimonialsGrid.innerHTML = '<p>No approved testimonials found</p>';
+            return;
+          }
+
+          testimonialsGrid.innerHTML = '';
+          snapshot.forEach(docSnap => {
+            const data = docSnap.data();
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+            card.innerHTML = `
+              <div class="testimonial-image">
+                <img src="${data.imageUrl || 'https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742'}" alt="${data.name}" />
+              </div>
+              <p class="testimonial-text">${data.message}</p>
+              <h3 class="testimonial-author">${data.name}</h3>
+            `;
+            testimonialsGrid.appendChild(card);
+          });
+        } catch (err) {
+          console.error('Error loading testimonials:', err);
+          testimonialsGrid.innerHTML = `<p>Error loading testimonials: ${err.message}</p>`;
         }
-
-        testimonialsGrid.innerHTML = '';
-        snapshot.forEach(docSnap => {
-          const data = docSnap.data();
-          const card = document.createElement('div');
-          card.className = 'testimonial-card';
-          card.innerHTML = `
-            <div class="testimonial-image">
-              <img src="${data.imageUrl || 'https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/IMG_6769.jpeg?v=1725061919742'}" alt="${data.name}" />
-            </div>
-            <p class="testimonial-text">${data.message}</p>
-            <h3 class="testimonial-author">${data.name}</h3>
-          `;
-          testimonialsGrid.appendChild(card);
-        });
-      } catch (err) {
-        console.error('Error loading testimonials:', err);
-        testimonialsGrid.innerHTML = `<p>Error loading testimonials: ${err.message}</p>`;
       }
-    }
 
-    // Handle form submission
-    const testimonialForm = document.getElementById('testimonialForm');
-    const modal = document.getElementById('notificationModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalMessage = document.getElementById('modalMessage');
+      // Handle form submission
+      const testimonialForm = document.getElementById('testimonialForm');
+      const modal = document.getElementById('notificationModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalMessage = document.getElementById('modalMessage');
 
-    function showModal(title, message) {
-      modalTitle.textContent = title;
-      modalMessage.textContent = message;
-      modal.style.display = 'flex';
-    }
+      function showModal(title, message) {
+        modalTitle.textContent = title;
+        modalMessage.textContent = message;
+        modal.style.display = 'flex';
+      }
 
-    function closeModal() {
-      modal.style.display = 'none';
-    }
+      function closeModal() {
+        modal.style.display = 'none';
+      }
 
-    window.closeModal = closeModal;
+      window.closeModal = closeModal;
 
-    testimonialForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const nameInput = document.getElementById('name');
-      const messageInput = document.getElementById('message');
-      
-      try {
-        await addDoc(collection(db, 'testimonials'), {
-          name: nameInput.value,
-          message: messageInput.value,
-          approved: false,
-          timestamp: new Date().toISOString()
-        });
+      testimonialForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        showModal('Success', 'Thank you for your review! It will be visible after approval.');
-        testimonialForm.reset();
-      } catch (err) {
-        console.error('Error submitting review:', err);
-        showModal('Error', 'Failed to submit review. Please try again.');
-      }
-    });
+        const nameInput = document.getElementById('name');
+        const messageInput = document.getElementById('message');
+        
+        try {
+          await addDoc(collection(db, 'testimonials'), {
+            name: nameInput.value,
+            message: messageInput.value,
+            approved: false,
+            timestamp: new Date().toISOString()
+          });
+          
+          showModal('Success', 'Thank you for your review! It will be visible after approval.');
+          testimonialForm.reset();
+        } catch (err) {
+          console.error('Error submitting review:', err);
+          showModal('Error', 'Failed to submit review. Please try again.');
+        }
+      });
 
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', loadApprovedTestimonials);
-  </script>
-      <!-- Wave Below "Book Me for an Event" -->
+      // Initialize when DOM is loaded
+      document.addEventListener('DOMContentLoaded', loadApprovedTestimonials);
+    </script>
+
+    <!-- Wave Below "Book Me for an Event" -->
     <div class="wave-container wave-bottom">
       <svg viewbox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -403,43 +440,43 @@
       </svg>
     </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section about">
-        <h3>About Me</h3>
-        <p style="font-family: 'futura-pt', sans-serif">
-          I’m Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
-        </p>
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3 data-en="About Me" data-jp="私について">About Me</h3>
+          <p style="font-family: 'futura-pt', sans-serif" data-en="I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!" data-jp="東京を拠点に活動するフォトグラファー兼ビデオグラファー、Taylan Topuzです。ポートフォリオもぜひご覧ください。コラボレーションのご相談もお気軽にどうぞ！">
+            I'm Taylan Topuz, a passionate photographer and videographer based in Tokyo. Explore my portfolio to see my work and get in touch for collaborations!
+          </p>
+        </div>
 
-      <div class="footer-section links">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="photo.html">Photography</a></li>
-          <li><a href="videography.html">Videography</a></li>
-          <li><a href="booking.html">Booking</a></li>
-          <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-        </ul>
-      </div>
+        <div class="footer-section links">
+          <h3 data-en="Quick Links" data-jp="クイックリンク">Quick Links</h3>
+          <ul>
+            <li><a href="photo.html" data-en="Photography" data-jp="写真撮影">Photography</a></li>
+            <li><a href="videography.html" data-en="Videography" data-jp="ビデオ撮影">Videography</a></li>
+            <li><a href="booking.html" data-en="Booking" data-jp="予約">Booking</a></li>
+            <li><a href="https://www.instagram.com/tay.camera" target="_blank" rel="noopener noreferrer" data-en="Instagram" data-jp="インスタグラム">Instagram</a></li>
+            <li><a href="#" data-en="Testimonials" data-jp="レビュー">Testimonials</a></li>
+          </ul>
+        </div>
 
-      <div class="footer-section contact">
-        <h3>Contact</h3>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
-          <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
-          <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
+        <div class="footer-section contact">
+          <h3 data-en="Contact" data-jp="お問い合わせ">Contact</h3>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/taylan-topuz/" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/linkedin-icon-seeklogo.svg?v=1724269244057" alt="LinkedIn" /></a>
+            <a href="https://www.instagram.com/tay.camera" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/1161953_instagram_icon.png?v=1724269254526" alt="Instagram" /></a>
+            <a href="mailto:ttopuz@outlook.jp" class="social-icon"><img src="https://cdn.glitch.global/d6da9e36-e150-4a04-8aac-2a224dc24a8d/mail-letter-svgrepo-com.svg?v=1724661477198" alt="Email" /></a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="footer-bottom">
-      <p style="font-family: 'futura-pt', sans-serif">
-        &copy; 2025 Taylan Topuz. All rights reserved.
-      </p>
-      <a href="#" class="back-to-top">Back to Top</a>
-    </div>
-  </footer>
-</body>
+      <div class="footer-bottom">
+        <p style="font-family: 'futura-pt', sans-serif">
+          &copy; 2025 Taylan Topuz. <span data-en="All rights reserved." data-jp="無断転載・複製を禁じます">All rights reserved.</span>
+        </p>
+        <a href="#" class="back-to-top" data-en="Back to Top" data-jp="トップに戻る">Back to Top</a>
+      </div>
+    </footer>
+  </body>
 </html>
